@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/djlacavera21/harbor-os/spec/harbor-flavor.schema.json",
+  "title": "Harbor OS Flavor",
+  "type": "object",
+  "required": ["schema", "id", "name", "version", "base", "identity"],
+  "properties": {
+    "schema": { "const": "harbor-flavor/v1" },
+    "id": { "type": "string", "minLength": 3 },
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "license": { "type": "string" },
+    "author": { "type": "object" },
+    "summary": { "type": "string" },
+    "description": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "base": {
+      "type": "object",
+      "required": ["distro", "release"],
+      "properties": {
+        "distro": { "enum": ["linuxmint", "debian", "ubuntu", "fedora", "arch", "none"] },
+        "release": { "type": "string" },
+        "desktop": { "type": "string" },
+        "min_ram_mb": { "type": "integer" },
+        "arch": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "required": ["os_name", "codename"],
+      "properties": {
+        "os_name": { "type": "string" },
+        "codename": { "type": "string" },
+        "pretty_name": { "type": "string" },
+        "hostname_prefix": { "type": "string" }
+      }
+    },
+    "alignment": { "type": "object" },
+    "visualizer": { "type": "object" },
+    "orchestrator": { "type": "object" },
+    "modules": { "type": "array" },
+    "services": { "type": "array" },
+    "experimentals": {
+      "type": "object",
+      "properties": {
+        "listed": { "type": "boolean" },
+        "upload_allowed": { "type": "boolean" },
+        "min_subscription": { "enum": ["none", "premium", "premium-plus"] },
+        "risk": { "enum": ["low", "medium", "high", "unsigned"] }
+      }
+    }
+  }
+}
