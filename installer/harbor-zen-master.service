@@ -1,0 +1,14 @@
+[Unit]
+Description=Harbor OS Grok Zen Master (optional)
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+WorkingDirectory=/opt/harbor-os/orchestrator
+ExecStart=/usr/bin/python3 /opt/harbor-os/orchestrator/zen_master.py
+Restart=on-failure
+RestartSec=5
+Environment=HARBOR_ZEN_MASTER_PORT=4200
+EnvironmentFile=-/etc/harbor-os/zen-master.env
+[Install]
+WantedBy=multi-user.target

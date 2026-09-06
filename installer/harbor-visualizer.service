@@ -1,0 +1,13 @@
+[Unit]
+Description=Harbor OS Zen Garden visualizer
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+WorkingDirectory=/opt/harbor-os/visualizer
+ExecStart=/usr/bin/python3 /opt/harbor-os/visualizer/server.py
+Restart=on-failure
+RestartSec=3
+Environment=HARBOR_VISUALIZER_PORT=8080
+[Install]
+WantedBy=graphical.target
