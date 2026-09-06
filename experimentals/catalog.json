@@ -1,0 +1,32 @@
+{
+  "schema": "harbor-experimentals-catalog/v1",
+  "updated": "2026-09-06",
+  "note": "This catalog is the community Experimentals index. It is not an official xAI or Grok App surface. A future Grok App tab could consume this same schema.",
+  "official": [
+    {
+      "id": "zen-garden",
+      "name": "FreshOS Zen Garden Edition",
+      "version": "1.0.0",
+      "channel": "official",
+      "download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
+      "source": "https://github.com/djlacavera21/harbor-os",
+      "flavor": "flavors/zen-garden/harbor.flavor.yaml",
+      "risk": "low",
+      "min_subscription": "none",
+      "summary": "Mint-based sovereign flavor with Zen Garden visualizer and optional Grok Zen Master."
+    }
+  ],
+  "community_upload": {
+    "enabled_locally": true,
+    "proposed_grok_app_gate": "X Premium+",
+    "accepts": [".yaml", ".yml", ".zip"],
+    "max_bytes": 52428800,
+    "rules": [
+      "Must validate against harbor-flavor/v1",
+      "Must declare base distro honestly",
+      "Must not ship credentials or telemetry endpoints",
+      "Must not claim official xAI status",
+      "Unsigned community flavors are risk=unsigned"
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+schema: harbor-flavor/v1
+id: zen-garden
+name: FreshOS Zen Garden Edition
+version: 1.0.0
+license: MIT
+author:
+  name: FreshOS Development Collective
+  url: https://github.com/djlacavera21/harbor-os
+summary: Sovereign Mint-based flavor with a living Zen Garden visualizer and optional Grok Zen Master orchestration.
+description: |
+  First official Harbor OS flavor. Transforms a Linux Mint 22.3 Cinnamon
+  base into FreshOS 1.0 Zen Garden — local visualizer on :8080, optional
+  Grok orchestrator on :4200, and module stubs for research, design,
+  publishing, strategy, finance, archives, and operator workflow.
+tags:
+  - zen-garden
+  - linuxmint
+  - grok
+  - sovereign
+  - offline-first
+base:
+  distro: linuxmint
+  release: "22.3"
+  desktop: cinnamon
+  min_ram_mb: 4096
+  arch:
+    - x86_64
+identity:
+  os_name: FreshOS
+  codename: Zen Garden
+  pretty_name: FreshOS 1.0 Zen Garden
+  hostname_prefix: freshos
+alignment:
+  principles:
+    - Sovereignty first — no required cloud accounts after setup
+    - Visual clarity over opacity
+    - Value coherence with the operator's stated goals
+    - Graduated agency — operator remains in command
+    - Long-term orientation
+  operator_role: Emperor
+  agent_role: Vizier
+  offline_first: true
+  telemetry: none
+visualizer:
+  id: zen-garden
+  port: 8080
+  theme: raked-sand
+  metaphor: "CPU is sand. Memory is stone. Network is lantern and bridge. Grok is the central orb."
+orchestrator:
+  id: grok-zen-master
+  port: 4200
+  provider: xai-grok
+  model: grok-4
+  requires_api_key: true
+modules:
+  - id: research
+    name: Research Wing
+    enabled: true
+    description: Source collection, verification notes, synthesis drafts.
+  - id: design
+    name: Design Wing
+    enabled: true
+    description: Visual production workspace for emblems, posters, and assets.
+  - id: publishing
+    name: Publishing Wing
+    enabled: true
+    description: Local archive plus outbound draft staging.
+  - id: war-room
+    name: Strategy Room
+    enabled: true
+    description: Scenario notes, alliance maps, long-horizon planning.
+  - id: finance
+    name: Finance Wing
+    enabled: true
+    description: Resource tracking and sovereignty-focused ledgers.
+  - id: archives
+    name: Archives and Memory
+    enabled: true
+    description: Long-term knowledge retention.
+  - id: crew
+    name: Crew Quarters
+    enabled: true
+    description: Operator environment and daily workflow.
+services:
+  - unit: harbor-visualizer.service
+    enabled: true
+    wanted_by: graphical.target
+  - unit: harbor-zen-master.service
+    enabled: false
+    wanted_by: multi-user.target
+experimentals:
+  listed: true
+  upload_allowed: false
+  min_subscription: none
+  risk: low
