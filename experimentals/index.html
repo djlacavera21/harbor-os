@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harbor OS · Experimentals</title>
+  <link rel="stylesheet" href="station.css" />
+</head>
+<body>
+  <header class="app">
+    <div class="mark" aria-hidden="true"></div>
+    <h1>Grok · <span>Experimentals</span></h1>
+    <span class="pill">Independent station</span>
+    <nav class="tabs">
+      <button class="tab active" data-tab="official">Harbor OS</button>
+      <button class="tab" data-tab="flavors">Flavors</button>
+      <button class="tab" data-tab="upload">Upload <small>· Premium+</small></button>
+      <button class="tab" data-tab="about">About</button>
+    </nav>
+  </header>
+  <main>
+    <div class="mobile-nav">
+      <button class="tab active" data-tab="official">Harbor OS</button>
+      <button class="tab" data-tab="flavors">Flavors</button>
+      <button class="tab" data-tab="upload">Upload</button>
+      <button class="tab" data-tab="about">About</button>
+    </div>
+    <section id="official" class="active">
+      <div class="hero">
+        <div class="card">
+          <h2>Harbor OS — FreshOS Zen Garden</h2>
+          <p class="lead">Sovereign Mint overlay with a living garden for system state and an optional Grok Vizier. This is the independent download. It is not a tab inside the production Grok iOS / Android / Web app.</p>
+          <div class="row">
+            <a class="btn" href="https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip">Download source zip</a>
+            <a class="btn ghost" href="https://github.com/djlacavera21/harbor-os">Open repository</a>
+            <a class="btn ghost" href="../visualizer/index.html">Open Zen Garden</a>
+          </div>
+          <p class="lead" style="margin-top:18px">Quick start after download:</p>
+          <textarea readonly>git clone https://github.com/djlacavera21/harbor-os.git
+cd harbor-os
+python3 visualizer/server.py
+# garden → http://127.0.0.1:8080
+
+./installer/install-harbor.sh
+# overlay onto Mint / Debian; no kernel replacement</textarea>
+        </div>
+        <div class="card">
+          <h3>What ships</h3>
+          <p class="lead">Flavor protocol · official Zen Garden · community flavors · visualizer :8080 · Zen Master :4200 · Cubic ISO notes · catalog JSON a future Grok tab can consume.</p>
+          <div class="notice">xAI owns Grok App chrome and X entitlements. This station implements the download link, the flavor format, and the Premium+ upload contract those surfaces would need.</div>
+        </div>
+      </div>
+      <div class="grid" id="official-grid"></div>
+    </section>
+    <section id="flavors">
+      <h2>Harbor flavors</h2>
+      <p class="lead">A flavor is a versioned overlay, not a relicensed distro. Official line is free to download. Community packs stay unsigned until reviewed.</p>
+      <div class="grid" id="flavor-grid"></div>
+    </section>
+    <section id="upload">
+      <div class="card">
+        <h2>Upload a flavor</h2>
+        <p class="lead">Proposed Grok App submenu: X Premium+ only. Here the gate is local so authors can rehearse the same contract.</p>
+        <div class="gate">
+          <input id="premium" type="checkbox" />
+          <label for="premium">I hold X Premium+ (or I am rehearsing the Premium+ upload path)</label>
+        </div>
+        <p class="lead">Drop a <code>harbor.flavor.yaml</code>. Max 50 MiB for a packed overlay. No API keys, no ISO images, no official xAI OS branding.</p>
+        <input id="file" type="file" accept=".yaml,.yml,.json,.zip" disabled />
+        <p class="lead">Or paste YAML:</p>
+        <textarea id="yaml" placeholder="schema: harbor-flavor/v1" disabled></textarea>
+        <div class="row">
+          <button id="validate" disabled>Validate harbor-flavor/v1</button>
+          <button id="packet" class="ghost" disabled>Build submission packet</button>
+        </div>
+        <p class="lead">Validated packets are published by pull request against <code>experimentals/catalog.json</code>.</p>
+        <div id="log">Gate closed. Enable Premium+ simulation to upload.</div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="card">
+        <h2>Boundaries</h2>
+        <p>Harbor OS is an independent overlay and flavor protocol maintained at <a href="https://github.com/djlacavera21/harbor-os">github.com/djlacavera21/harbor-os</a>.</p>
+        <ul>
+          <li>It does not modify the Grok App binary.</li>
+          <li>It does not read live X subscription state.</li>
+          <li>It does not host a full Linux Mint ISO (use official Mint + Cubic).</li>
+          <li>It is not harboros.ai / TrueNAS SCALE HarborOS, and not the Rust Pi-4 harbor-kernel.</li>
+        </ul>
+        <p>Sister trees: <a href="https://github.com/djlacavera21/Harbor-OS-Experimentals">Harbor-OS-Experimentals</a>, <a href="https://github.com/djlacavera21/freshos-zen-garden">freshos-zen-garden</a>.</p>
+        <p>Whitepaper: <a href="../whitepaper/FreshOS_Automation_Alignment_Whitepaper.md">FreshOS Automation Alignment</a>.</p>
+      </div>
+    </section>
+    <footer class="site">Independent Experimentals station · catalog schema harbor-experimentals-catalog/v1 · MIT · operator remains in command</footer>
+  </main>
+  <script src="station.js"></script>
+</body>
+</html>
