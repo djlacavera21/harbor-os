@@ -1,39 +1,49 @@
 # Grok App Experimentals — integration note
 
-## What this repository can do
+## Honest split
 
-- Ship an independent download URL.
-- Define a flavor file format and validator.
-- Host an official flavor (Zen Garden) and a community template.
-- Run a local Experimentals station (`experimentals/station.html`).
+| Desire | What this repo ships | What only xAI can do |
+| --- | --- | --- |
+| Full OS | Mint-family overlay, flavor protocol, Cubic notes | Nothing required |
+| Independent download | GitHub source + zip + Pages station | Optionally deep-link it |
+| Experimentals tab in Grok App | Working IA in `experimentals/index.html` + `catalog.json` | Render the tab in the App |
+| Premium+ upload submenu | Local gate + validator + submission packet | Read live X Premium+ entitlements |
 
-## What this repository cannot do
+This repository **cannot** add a tab inside the official Grok iOS, Android, or Web application.
 
-It cannot add a tab, submenu, or upload control inside the official Grok iOS, Android, or Web application. Those binaries and backend entitlements are owned by xAI. Claiming otherwise would be false.
+## Independent links (live)
 
-## Proposed contract if xAI ever adds the tab
+- Source: https://github.com/djlacavera21/harbor-os
+- Zip: https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip
+- Experimentals station (GitHub Pages, after first Actions run): https://djlacavera21.github.io/harbor-os/
+- Catalog JSON: https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json
+
+## Proposed App information architecture
 
 ```
 Grok App
   └── Experimentals
-        ├── Harbor OS   ← official catalog.official[]
-        └── Upload flavor (X Premium+)
-              accepts harbor-flavor/v1 YAML or zip
-              gate: X subscription == premium-plus
-              server: validate_flavor.py + malware/secret scan
+        ├── Harbor OS          official[] from catalog.json
+        ├── Flavors            official[] + community[]
+        └── Upload flavor      X Premium+ only
+              accepts harbor-flavor/v1 YAML or zip ≤ 50 MiB
+              server: validate_flavor.py + secret / ISO scan
               listing: catalog.community[]
 ```
 
 Suggested entitlement check (server-side, not in this repo):
 
-- Identity: X account bound to Grok.
-- Plan: Premium+.
-- Artifact: `harbor.flavor.yaml` plus optional overlay tarball ≤ 50 MiB.
-- Policy: no bundled API keys, no required telemetry, no "official xAI OS" branding on community uploads.
+- Identity: X account bound to Grok
+- Plan: Premium+
+- Artifact: `harbor.flavor.yaml` plus optional overlay tarball ≤ 50 MiB
+- Policy: no bundled API keys, no required telemetry, no “official xAI OS” branding on community uploads
 
-The catalog schema in `experimentals/catalog.json` is deliberately boring so an app client can render it without a custom protocol.
+## Local rehearsal
 
-## Independent download (available now)
+Open `experimentals/index.html` from a static server or Pages. The Upload tab simulates the Premium+ gate so authors can validate and emit a submission packet before opening a pull request.
 
-- Source: https://github.com/djlacavera21/harbor-os
-- Zip: https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip
+## Naming collisions
+
+- harboros.ai TrueNAS SCALE images are a different product.
+- gianlucamazza/harbor-kernel is a Rust Pi-4 microkernel. Different product.
+- av/harbor is a Docker LLM toolkit. Different product.

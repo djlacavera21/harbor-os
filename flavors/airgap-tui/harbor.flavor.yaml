@@ -1,0 +1,57 @@
+schema: harbor-flavor/v1
+id: airgap-tui
+name: Airgap TUI Station
+version: 0.1.0
+license: MIT
+author:
+  name: Harbor community template
+  url: https://github.com/djlacavera21/harbor-os
+summary: Minimal air-gap oriented flavor. Orchestrator off. Visualizer optional.
+description: |
+  Community flavor for machines that should stay quiet. No default outbound
+  agent. TUI-first operator loop.
+tags: [airgap, tui, community]
+base:
+  distro: linuxmint
+  release: "22.3"
+  desktop: cinnamon
+  min_ram_mb: 2048
+  arch: [x86_64]
+identity:
+  os_name: Harbor
+  codename: Airgap
+  pretty_name: Harbor OS Airgap TUI 0.1
+  hostname_prefix: harbor-ag
+alignment:
+  principles:
+    - Sovereignty first
+    - No required network after install
+    - Graduated agency stays at zero until the operator opts in
+  operator_role: Emperor
+  agent_role: Vizier
+  offline_first: true
+  telemetry: none
+visualizer:
+  id: zen-garden
+  port: 8080
+orchestrator:
+  id: grok-zen-master
+  port: 4200
+  requires_api_key: true
+modules:
+  - id: archives
+    name: Archives
+    enabled: true
+  - id: crew
+    name: Crew Quarters
+    enabled: true
+services:
+  - unit: harbor-visualizer.service
+    enabled: false
+  - unit: harbor-zen-master.service
+    enabled: false
+experimentals:
+  listed: true
+  upload_allowed: true
+  min_subscription: none
+  risk: unsigned

@@ -1,0 +1,63 @@
+schema: harbor-flavor/v1
+id: war-room
+name: War Room Harbor
+version: 0.1.0
+license: MIT
+author:
+  name: Harbor community template
+  url: https://github.com/djlacavera21/harbor-os
+summary: Strategy-first weighting of Harbor modules. Garden stays; the board is the default room.
+description: |
+  Community flavor. Does not replace Zen Garden identity. Raises the strategy
+  module and keeps the orchestrator opt-in.
+tags: [strategy, war-room, community]
+base:
+  distro: linuxmint
+  release: "22.3"
+  desktop: cinnamon
+  min_ram_mb: 4096
+  arch: [x86_64]
+identity:
+  os_name: Harbor
+  codename: War Room
+  pretty_name: Harbor OS War Room 0.1
+  hostname_prefix: harbor-wr
+alignment:
+  principles:
+    - Sovereignty first
+    - Operator remains in command
+    - Long-horizon planning over reactive dashboards
+  operator_role: Emperor
+  agent_role: Vizier
+  offline_first: true
+  telemetry: none
+visualizer:
+  id: zen-garden
+  port: 8080
+  theme: raked-sand
+orchestrator:
+  id: grok-zen-master
+  port: 4200
+  provider: xai-grok
+  requires_api_key: true
+modules:
+  - id: war-room
+    name: Strategy Room
+    enabled: true
+    description: Scenario board and alliance map.
+  - id: research
+    name: Research Wing
+    enabled: true
+  - id: archives
+    name: Archives
+    enabled: true
+services:
+  - unit: harbor-visualizer.service
+    enabled: true
+  - unit: harbor-zen-master.service
+    enabled: false
+experimentals:
+  listed: true
+  upload_allowed: true
+  min_subscription: none
+  risk: unsigned

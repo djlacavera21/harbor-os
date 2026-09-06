@@ -1,0 +1,41 @@
+name: Deploy Experimentals station
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stage Pages tree
+        run: |
+          mkdir -p _site/experimentals _site/visualizer _site/whitepaper _site/flavors _site/docs _site/spec
+          cp experimentals/index.html _site/index.html
+          cp -a experimentals/. _site/experimentals/
+          cp experimentals/index.html _site/experimentals/station.html
+          cp -a visualizer/. _site/visualizer/
+          cp -a whitepaper/. _site/whitepaper/
+          cp -a flavors/. _site/flavors/
+          cp -a docs/. _site/docs/
+          cp -a spec/. _site/spec/
+          cp README.md _site/README.md
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

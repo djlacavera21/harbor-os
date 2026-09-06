@@ -2,11 +2,11 @@
 
 The July 2026 FreshOS Automation Alignment Whitepaper is the design brief this repository implements as an overlay and flavor protocol.
 
-It is an alignment *document*, not a kernel. Harbor OS v1.0 turns that brief into:
+Full text: [FreshOS_Automation_Alignment_Whitepaper.md](FreshOS_Automation_Alignment_Whitepaper.md)
 
-- a versioned flavor file
+Harbor OS v1.0 turns that brief into:
+
+- a versioned flavor file (`harbor-flavor/v1`)
 - a local Zen Garden visualizer
 - an optional Grok Zen Master
-- an Experimentals catalog that a future Grok App tab could consume
-
-See the original brief in the project conversation attachment, and the implementation notes in `docs/`.
+- an Experimentals catalog and station a future Grok App tab could consume
