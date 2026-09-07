@@ -8,8 +8,9 @@
 | --- | --- |
 | Source | [github.com/djlacavera21/harbor-os](https://github.com/djlacavera21/harbor-os) |
 | Zip | [harbor-os-main.zip](https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip) |
-| Experimentals station | [djlacavera21.github.io/harbor-os](https://djlacavera21.github.io/harbor-os/) |
+| Experimentals station | [djlacavera21.github.io/harbor-os](https://djlacavera21.github.io/harbor-os/) — enable Pages first, see [docs/PAGES.md](docs/PAGES.md) |
 | Catalog (App contract) | [experimentals/catalog.json](https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json) |
+| Flavor upload issue | [Submit a flavor](https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml) |
 
 > This is a real, runnable overlay and flavor protocol. It is **not** an official xAI product, and it cannot install a new tab inside the Grok iOS / Android / Web app. See [docs/GROK_APP_INTEGRATION.md](docs/GROK_APP_INTEGRATION.md).
 
@@ -17,7 +18,7 @@
 
 ```
 Grok App                         Independent station (ships today)
- └── Experimentals                experimentals/index.html
+ └── Experimentals                docs/index.html + experimentals/
       ├── Harbor OS               official catalog + zip
       ├── Flavors                 official + community YAML
       └── Upload flavor           X Premium+ proposal
@@ -29,7 +30,7 @@ Until xAI ships that tab:
 1. Anyone downloads the official flavor from this repo.
 2. Authors draft a `harbor.flavor.yaml` from `flavors/template/` or the community examples.
 3. Validate: `python3 experimentals/validate_flavor.py path.yaml`
-4. Publishing into the shared catalog is a pull request against `experimentals/catalog.json`.
+4. Publishing into the shared catalog is a pull request against `experimentals/catalog.json` (or the submit-flavor issue).
 5. The local / Pages stand-in UI is the Experimentals station.
 
 The upload *gate* is a product decision for xAI. The upload *format* is specified here so the tab, if it ever exists, does not need a new file type.
@@ -47,6 +48,7 @@ The upload *gate* is a product decision for xAI. The upload *format* is specifie
 | One-command overlay installer | Done |
 | Cubic notes for a bootable Mint ISO | Documented |
 | Experimentals catalog + station | Done |
+| Independent Pages link | Ready — owner must enable Pages ([docs/PAGES.md](docs/PAGES.md)) |
 | Official Grok App Experimentals tab | **Not in this repo's power** |
 
 The July 2026 alignment whitepaper is in [`whitepaper/FreshOS_Automation_Alignment_Whitepaper.md`](whitepaper/FreshOS_Automation_Alignment_Whitepaper.md).
@@ -63,7 +65,8 @@ Open [http://127.0.0.1:8080](http://127.0.0.1:8080) for the garden. For the Expe
 
 ```bash
 python3 -m http.server 8088
-# Experimentals → http://127.0.0.1:8088/experimentals/
+# Experimentals → http://127.0.0.1:8088/docs/
+# or                     http://127.0.0.1:8088/experimentals/
 ```
 
 Sand = load. Stones = memory. Lanterns = network. The orb is the aligned agent.
