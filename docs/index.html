@@ -5,9 +5,161 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Harbor OS · Experimentals</title>
   <meta name="description" content="Independent Harbor OS download station. Official FreshOS Zen Garden flavor, community flavors, and a Premium+ upload rehearsal. Not an official xAI Grok App tab." />
-  <link rel="stylesheet" href="#" />
+  <style>
+    :root{--bg:#0b0c0e;--panel:#14161a;--panel-2:#1b1e24;--line:#2a2e36;--text:#ece7dc;--muted:#9a9486;--gold:#e8c36a;--gold-dim:#8a7030;--ok:#7dbe8a;--warn:#d08a4a;--bad:#c96b6b}
+    *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 "IBM Plex Sans",Segoe UI,system-ui,sans-serif}
+    a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+    header.app{display:flex;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#12141a,#0b0c0e);position:sticky;top:0;z-index:10;flex-wrap:wrap}
+    .mark{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6d2,var(--gold) 45%,#5a4314);box-shadow:0 0 18px #e8c36a66}
+    header h1{font-size:15px;font-weight:600;margin:0;letter-spacing:.04em}header h1 span{color:var(--muted);font-weight:400}
+    .tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+    .tab{background:transparent;color:var(--muted);border:1px solid transparent;padding:7px 12px;border-radius:999px;cursor:pointer;font:inherit}
+    .tab.active{color:var(--text);border-color:var(--line);background:var(--panel)}
+    .pill{font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--gold-dim);color:var(--gold);padding:3px 8px;border-radius:999px}
+    main{max-width:1080px;margin:0 auto;padding:28px 22px 80px}
+    .hero{display:grid;grid-template-columns:1.4fr .8fr;gap:22px;margin-bottom:28px}
+    @media(max-width:860px){.hero{grid-template-columns:1fr}}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+    h2{font-size:20px;margin:0 0 8px}h3{font-size:16px;margin:0 0 6px}p.lead{color:var(--muted);margin-top:0}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    button,.btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#1a1406;border:0;border-radius:10px;padding:9px 14px;font:600 13px/1 inherit;cursor:pointer;text-decoration:none}
+    button.ghost,.btn.ghost{background:var(--panel-2);color:var(--text);border:1px solid var(--line)}
+    button:disabled{opacity:.45;cursor:not-allowed}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+    .flavor{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
+    .flavor .meta{color:var(--muted);font-size:12px}
+    .risk{font-size:11px;text-transform:uppercase;letter-spacing:.06em}.risk.low{color:var(--ok)}.risk.unsigned{color:var(--warn)}
+    .notice{border-left:3px solid var(--gold);padding:10px 14px;background:#1a1710;border-radius:0 10px 10px 0;color:var(--muted);font-size:13px}
+    .gate{display:flex;align-items:center;gap:10px;margin:14px 0}
+    input[type=file],textarea{width:100%;background:#0e1014;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px;font:13px/1.45 ui-monospace,Menlo,monospace}
+    textarea{min-height:200px;resize:vertical}
+    #log{white-space:pre-wrap;font:12px/1.5 ui-monospace,monospace;color:var(--muted);background:#0e1014;border-radius:10px;padding:12px;min-height:80px}
+    .ok{color:var(--ok)}.bad{color:var(--bad)}
+    footer.site{color:var(--muted);font-size:12px;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+    section{display:none}section.active{display:block}
+    code{background:#0e1014;padding:1px 5px;border-radius:4px}
+  </style>
 </head>
 <body>
-  <p>See repository experimentals station. This file is replaced next.</p>
+  <header class="app">
+    <div class="mark" aria-hidden="true"></div>
+    <h1>Grok · <span>Experimentals</span></h1>
+    <span class="pill">Independent station</span>
+    <nav class="tabs">
+      <button class="tab active" data-tab="official">Harbor OS</button>
+      <button class="tab" data-tab="flavors">Flavors</button>
+      <button class="tab" data-tab="upload">Upload <small>· Premium+</small></button>
+      <button class="tab" data-tab="about">About</button>
+    </nav>
+  </header>
+  <main>
+    <section id="official" class="active">
+      <div class="hero">
+        <div class="card">
+          <h2>Harbor OS — FreshOS Zen Garden</h2>
+          <p class="lead">Sovereign Mint overlay with a living garden for system state and an optional Grok Vizier. This page is the independent download. It is not a tab inside the production Grok iOS / Android / Web app — only xAI can ship that chrome.</p>
+          <div class="row">
+            <a class="btn" href="https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip">Download source zip</a>
+            <a class="btn ghost" href="https://github.com/djlacavera21/harbor-os">Open repository</a>
+            <a class="btn ghost" href="https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json">Catalog JSON</a>
+          </div>
+          <p class="lead" style="margin-top:18px">Quick start after download:</p>
+          <textarea readonly>git clone https://github.com/djlacavera21/harbor-os.git
+cd harbor-os
+python3 visualizer/server.py
+# garden → http://127.0.0.1:8080
+
+chmod +x installer/install-harbor.sh
+HARBOR_FLAVOR_ID=zen-garden ./installer/install-harbor.sh
+# overlay onto Mint / Debian — does not replace the kernel</textarea>
+        </div>
+        <div class="card">
+          <h3>What ships today</h3>
+          <p class="lead">Flavor protocol · official Zen Garden · community flavors · visualizer :8080 · Zen Master :4200 · Cubic ISO notes · catalog JSON a future Grok tab can consume.</p>
+          <div class="notice">xAI owns Grok App chrome and X entitlements. This station implements the download link, the flavor format, and the Premium+ upload contract those surfaces would need.</div>
+        </div>
+      </div>
+      <div class="grid" id="official-grid"></div>
+    </section>
+    <section id="flavors">
+      <h2>Harbor flavors</h2>
+      <p class="lead">A flavor is a versioned overlay, not a relicensed distro. Official line is free. Community packs stay unsigned until reviewed. Proposed Grok App submenu: X Premium+ authors upload <code>harbor.flavor.yaml</code>.</p>
+      <div class="grid" id="flavor-grid"></div>
+    </section>
+    <section id="upload">
+      <div class="card">
+        <h2>Upload a flavor</h2>
+        <p class="lead">Proposed Grok App submenu: X Premium+ only. Here the gate is local so authors can rehearse the same contract before opening a pull request.</p>
+        <div class="gate">
+          <input id="premium" type="checkbox" />
+          <label for="premium">I hold X Premium+ (or I am rehearsing the Premium+ upload path)</label>
+        </div>
+        <p class="lead">Drop a <code>harbor.flavor.yaml</code>. Max 50 MiB for a packed overlay. No API keys, no ISO images, no “official xAI OS” branding.</p>
+        <input id="file" type="file" accept=".yaml,.yml,.json,.zip" disabled />
+        <p class="lead">Or paste YAML:</p>
+        <textarea id="yaml" placeholder="schema: harbor-flavor/v1" disabled></textarea>
+        <div class="row">
+          <button id="validate" disabled>Validate harbor-flavor/v1</button>
+          <button id="packet" class="ghost" disabled>Build submission packet</button>
+        </div>
+        <p class="lead">Validated packets publish by pull request against <code>experimentals/catalog.json</code> in the harbor-os repo.</p>
+        <div id="log">Gate closed. Enable Premium+ simulation to upload.</div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="card">
+        <h2>Boundaries</h2>
+        <p>Harbor OS is an independent overlay and flavor protocol at <a href="https://github.com/djlacavera21/harbor-os">github.com/djlacavera21/harbor-os</a>.</p>
+        <ul>
+          <li>It does not modify the Grok App binary.</li>
+          <li>It does not read live X subscription state.</li>
+          <li>It does not host a full Linux Mint ISO (use official Mint + Cubic).</li>
+          <li>It is not harboros.ai / TrueNAS SCALE HarborOS, and not the Rust Pi-4 harbor-kernel.</li>
+        </ul>
+        <p>Sister trees: <a href="https://github.com/djlacavera21/Harbor-OS-Experimentals">Harbor-OS-Experimentals</a>, <a href="https://github.com/djlacavera21/freshos-zen-garden">freshos-zen-garden</a>.</p>
+      </div>
+    </section>
+    <footer class="site">Independent Experimentals station · catalog schema harbor-experimentals-catalog/v1 · MIT · operator remains in command</footer>
+  </main>
+  <script>
+    const FALLBACK = {
+      official: [{id:"zen-garden",name:"FreshOS Zen Garden Edition",version:"1.0.0",download:"https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",source:"https://github.com/djlacavera21/harbor-os",flavor:"https://github.com/djlacavera21/harbor-os/blob/main/flavors/zen-garden/harbor.flavor.yaml",risk:"low",summary:"Mint overlay, Zen Garden visualizer, optional Grok Zen Master."}],
+      community: [
+        {id:"war-room",name:"War Room Harbor",version:"0.1.0",download:"https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",source:"https://github.com/djlacavera21/harbor-os/tree/main/flavors/war-room",risk:"unsigned",summary:"Strategy-first module weighting: scenario board, alliance map, long-horizon notes."},
+        {id:"research-harbor",name:"Research Harbor",version:"0.1.0",download:"https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",source:"https://github.com/djlacavera21/harbor-os/tree/main/flavors/research-harbor",risk:"unsigned",summary:"Research wing default: source inbox, verification notes, offline synthesis drafts."},
+        {id:"airgap-tui",name:"Airgap TUI Station",version:"0.1.0",download:"https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",source:"https://github.com/djlacavera21/harbor-os/tree/main/flavors/airgap-tui",risk:"unsigned",summary:"Minimal TUI-oriented flavor. Orchestrator off. Visualizer optional. Air-gap friendly."}
+      ]
+    };
+    const REQUIRED=["schema","id","name","version","base","identity"];
+    const DISTROS=new Set(["linuxmint","debian","ubuntu","fedora","arch","none"]);
+    function parseMaybeYaml(text){try{return JSON.parse(text)}catch(_){}
+      const data={};let key=null,buf=[];const take=()=>{if(!key)return;const raw=buf.join("\n").trim();if(raw.startsWith("|")||raw.startsWith(">"))data[key]=raw.replace(/^[|>]\s*/,"");else if(raw.startsWith("- "))data[key]=raw.split(/\n- /).map(s=>s.replace(/^- /,""));else data[key]=raw};
+      for(const line of text.split(/\r?\n/)){if(/^[a-zA-Z0-9_]+:/.test(line)&&!line.startsWith(" ")){take();const i=line.indexOf(":");key=line.slice(0,i);buf=[line.slice(i+1)]}else buf.push(line)}take();if(typeof data.base==="string")data.base={distro:data.base};return data}
+    function validateFlavor(data){const errors=[];if(!data||typeof data!=="object")return["document is not an object"];for(const k of REQUIRED)if(!(k in data))errors.push("missing "+k);if(data.schema&&data.schema!=="harbor-flavor/v1")errors.push("schema must be harbor-flavor/v1");const distro=data.base&&data.base.distro;if(distro&&!DISTROS.has(distro))errors.push("unsupported base.distro: "+distro);const id=data.identity||{};if(data.identity&&(!id.os_name||!id.codename))errors.push("identity needs os_name and codename");const blob=JSON.stringify(data).toLowerCase();for(const secret of ["api_key","xai_api_key","begin rsa private","sk-"])if(blob.includes(secret))errors.push("possible secret material: "+secret);if(/\bofficial (xai|grok) os\b/.test(blob))errors.push("community flavors may not claim official xAI status");return errors}
+    function card(item,official){const el=document.createElement("article");el.className="flavor";el.innerHTML=`<div class="meta">${official?"Official":"Community"} · ${item.version||""} · <span class="risk ${item.risk||"unsigned"}">${item.risk||"unsigned"}</span></div><h3>${item.name}</h3><p class="lead">${item.summary||""}</p><div class="row">${item.download?`<a class="btn" href="${item.download}">Download</a>`:""}${item.source?`<a class="btn ghost" href="${item.source}">Source</a>`:""}${item.flavor?`<a class="btn ghost" href="${item.flavor}">Flavor file</a>`:""}</div>`;return el}
+    async function loadCatalog(){
+      let catalog=null;
+      const urls=["catalog.json","./catalog.json","https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json"];
+      for(const u of urls){try{const res=await fetch(u,{cache:"no-store"});if(res.ok){catalog=await res.json();break}}catch(_){}}
+      if(!catalog) catalog=FALLBACK;
+      const og=document.getElementById("official-grid");const fg=document.getElementById("flavor-grid");
+      og.innerHTML="";fg.innerHTML="";
+      (catalog.official||[]).forEach(i=>og.appendChild(card(i,true)));
+      (catalog.official||[]).concat(catalog.community||[]).forEach(i=>fg.appendChild(card(i,(catalog.official||[]).some(o=>o.id===i.id))));
+    }
+    document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>{
+      const id=btn.dataset.tab;
+      document.querySelectorAll("section").forEach(s=>s.classList.toggle("active",s.id===id));
+      document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.tab===id));
+    }));
+    const premium=document.getElementById("premium"),file=document.getElementById("file"),yaml=document.getElementById("yaml"),validateBtn=document.getElementById("validate"),packetBtn=document.getElementById("packet"),log=document.getElementById("log");
+    function setGate(on){[file,yaml,validateBtn,packetBtn].forEach(el=>el.disabled=!on);log.textContent=on?"Gate open (local Premium+ simulation). Validate before you submit a PR.":"Gate closed. Enable Premium+ simulation to upload."}
+    premium.addEventListener("change",()=>setGate(premium.checked));
+    file.addEventListener("change",async()=>{const f=file.files[0];if(!f)return;if(f.size>50*1024*1024){log.innerHTML='<span class="bad">File exceeds 50 MiB community cap.</span>';return}if(/\.(iso|img)$/i.test(f.name)){log.innerHTML='<span class="bad">ISO / disk images are forbidden in flavor packs.</span>';return}yaml.value=await f.text();log.textContent="Loaded "+f.name+" ("+f.size+" bytes)"});
+    function currentDoc(){const text=yaml.value.trim();if(!text)return{errors:["nothing to validate"],data:null,text};try{const data=parseMaybeYaml(text);return{errors:validateFlavor(data),data,text}}catch(e){return{errors:["parse failed: "+e.message],data:null,text}}}
+    validateBtn.addEventListener("click",()=>{const{errors,data}=currentDoc();log.innerHTML=errors.length?'<span class="bad">INVALID</span>\n'+errors.map(e=>"  - "+e).join("\n"):'<span class="ok">VALID '+data.id+"@"+data.version+" ("+data.name+")</span>"});
+    packetBtn.addEventListener("click",()=>{const{errors,data,text}=currentDoc();if(errors.length){log.innerHTML='<span class="bad">Fix validation first.</span>\n'+errors.map(e=>"  - "+e).join("\n");return}const packet={schema:"harbor-experimentals-submission/v1",proposed_gate:"X Premium+",submitted_at:new Date().toISOString(),flavor:data,catalog_patch:{community:[{id:data.id,name:data.name,version:data.version,channel:"community",risk:"unsigned",min_subscription:"none",summary:data.summary||"",flavor:"flavors/"+data.id+"/harbor.flavor.yaml"}]},publish_via:"https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml"};const blob=new Blob([JSON.stringify(packet,null,2)+"\n\n--- flavor ---\n"+text],{type:"text/plain"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=data.id+".harbor-submission.txt";a.click();log.innerHTML='<span class="ok">Packet ready.</span> Open a PR or issue that adds flavors/'+data.id+"/harbor.flavor.yaml and catalog.community[]."});
+    loadCatalog();
+  </script>
 </body>
 </html>
