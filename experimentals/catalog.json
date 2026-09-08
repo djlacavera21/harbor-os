@@ -1,6 +1,6 @@
 {
   "schema": "harbor-experimentals-catalog/v1",
-  "updated": "2026-09-06",
+  "updated": "2026-09-08",
   "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
   "source": "https://github.com/djlacavera21/harbor-os",
   "pages": "https://djlacavera21.github.io/harbor-os/",
@@ -25,7 +25,7 @@
       "name": "War Room Harbor",
       "version": "0.1.0",
       "channel": "community",
-      "download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
+      "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/war-room",
       "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/war-room",
       "flavor": "flavors/war-room/harbor.flavor.yaml",
       "risk": "unsigned",
@@ -37,7 +37,7 @@
       "name": "Research Harbor",
       "version": "0.1.0",
       "channel": "community",
-      "download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
+      "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/research-harbor",
       "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/research-harbor",
       "flavor": "flavors/research-harbor/harbor.flavor.yaml",
       "risk": "unsigned",
@@ -49,12 +49,24 @@
       "name": "Airgap TUI Station",
       "version": "0.1.0",
       "channel": "community",
-      "download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
+      "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/airgap-tui",
       "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/airgap-tui",
       "flavor": "flavors/airgap-tui/harbor.flavor.yaml",
       "risk": "unsigned",
       "min_subscription": "none",
       "summary": "Minimal TUI-oriented flavor. Orchestrator off. Visualizer optional. Air-gap friendly."
+    },
+    {
+      "id": "publishing-harbor",
+      "name": "Publishing Harbor",
+      "version": "0.1.0",
+      "channel": "community",
+      "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/publishing-harbor",
+      "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/publishing-harbor",
+      "flavor": "flavors/publishing-harbor/harbor.flavor.yaml",
+      "risk": "unsigned",
+      "min_subscription": "none",
+      "summary": "Outbound drafts, local archive, design assets. Upload gate proposed as X Premium+."
     }
   ],
   "community_upload": {
@@ -62,6 +74,7 @@
     "proposed_grok_app_gate": "X Premium+",
     "accepts": [".yaml", ".yml", ".zip"],
     "max_bytes": 52428800,
+    "submit_issue": "https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml",
     "rules": [
       "Must validate against harbor-flavor/v1",
       "Must declare base distro honestly",
