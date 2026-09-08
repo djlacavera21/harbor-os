@@ -29,7 +29,7 @@ Until xAI ships that tab:
 
 1. Anyone downloads the official flavor from this repo.
 2. Authors draft a `harbor.flavor.yaml` from `flavors/template/` or the community examples.
-3. Validate: `python3 experimentals/validate_flavor.py path.yaml`
+3. Validate: `./scripts/harborctl.sh validate path.yaml`
 4. Publishing into the shared catalog is a pull request against `experimentals/catalog.json` (or the submit-flavor issue).
 5. The local / Pages stand-in UI is the Experimentals station.
 
@@ -41,11 +41,11 @@ The upload *gate* is a product decision for xAI. The upload *format* is specifie
 | --- | --- |
 | Flavor spec `harbor-flavor/v1` | Done |
 | Official flavor: FreshOS Zen Garden | Done |
-| Community flavors: War Room, Research, Airgap TUI | Done (unsigned) |
+| Community flavors: War Room, Research, Airgap TUI, Publishing | Done (unsigned) |
 | Community template + validator | Done |
 | Zen Garden visualizer (`:8080`) | Runnable |
 | Grok Zen Master orchestrator (`:4200`) | Runnable, optional API key |
-| One-command overlay installer | Done |
+| One-command overlay installer + `harborctl` | Done |
 | Cubic notes for a bootable Mint ISO | Documented |
 | Experimentals catalog + station | Done |
 | Independent Pages link | Ready — owner must enable Pages ([docs/PAGES.md](docs/PAGES.md)) |
@@ -58,15 +58,16 @@ The July 2026 alignment whitepaper is in [`whitepaper/FreshOS_Automation_Alignme
 ```bash
 git clone https://github.com/djlacavera21/harbor-os.git
 cd harbor-os
-python3 visualizer/server.py
+chmod +x scripts/harborctl.sh installer/*.sh iso/customize.sh experimentals/validate_flavor.py
+./scripts/harborctl.sh garden
 ```
 
-Open [http://127.0.0.1:8080](http://127.0.0.1:8080) for the garden. For the Experimentals station:
+Open [http://127.0.0.1:8080](http://127.0.0.1:8080) for the garden.
 
 ```bash
-python3 -m http.server 8088
-# Experimentals → http://127.0.0.1:8088/docs/
-# or                     http://127.0.0.1:8088/experimentals/
+./scripts/harborctl.sh experimentals
+# Experimentals → http://127.0.0.1:8088/experimentals/
+./scripts/harborctl.sh catalog
 ```
 
 Sand = load. Stones = memory. Lanterns = network. The orb is the aligned agent.
@@ -74,8 +75,7 @@ Sand = load. Stones = memory. Lanterns = network. The orb is the aligned agent.
 ## Install as an overlay
 
 ```bash
-chmod +x installer/*.sh iso/customize.sh experimentals/validate_flavor.py
-HARBOR_FLAVOR_ID=zen-garden ./installer/install-harbor.sh
+HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply
 ```
 
 Root on Mint/Debian copies the tree to `/opt/harbor-os` and enables a systemd unit. Without root, files land under `~/.local/share/harbor-os`.
@@ -83,9 +83,10 @@ Root on Mint/Debian copies the tree to `/opt/harbor-os` and enables a systemd un
 Community examples:
 
 ```bash
-HARBOR_FLAVOR_ID=war-room ./installer/install-harbor.sh
-HARBOR_FLAVOR_ID=research-harbor ./installer/install-harbor.sh
-HARBOR_FLAVOR_ID=airgap-tui ./installer/install-harbor.sh
+HARBOR_FLAVOR_ID=war-room ./scripts/harborctl.sh apply
+HARBOR_FLAVOR_ID=research-harbor ./scripts/harborctl.sh apply
+HARBOR_FLAVOR_ID=airgap-tui ./scripts/harborctl.sh apply
+HARBOR_FLAVOR_ID=publishing-harbor ./scripts/harborctl.sh apply
 ```
 
 ## Flavors
@@ -93,15 +94,16 @@ HARBOR_FLAVOR_ID=airgap-tui ./installer/install-harbor.sh
 A flavor is a YAML overlay, not a relicensed distro.
 
 ```text
-flavors/zen-garden/harbor.flavor.yaml      official
-flavors/war-room/harbor.flavor.yaml        community
-flavors/research-harbor/harbor.flavor.yaml community
-flavors/airgap-tui/harbor.flavor.yaml      community
-flavors/template/harbor.flavor.yaml        start here
+flavors/zen-garden/harbor.flavor.yaml         official
+flavors/war-room/harbor.flavor.yaml           community
+flavors/research-harbor/harbor.flavor.yaml    community
+flavors/airgap-tui/harbor.flavor.yaml         community
+flavors/publishing-harbor/harbor.flavor.yaml  community
+flavors/template/harbor.flavor.yaml           start here
 ```
 
 ```bash
-python3 experimentals/validate_flavor.py flavors/zen-garden/harbor.flavor.yaml
+./scripts/harborctl.sh validate flavors/zen-garden/harbor.flavor.yaml
 ```
 
 Schema: [`spec/harbor-flavor.schema.json`](spec/harbor-flavor.schema.json).
@@ -109,19 +111,19 @@ Schema: [`spec/harbor-flavor.schema.json`](spec/harbor-flavor.schema.json).
 ## Architecture
 
 ```text
-┌─────────────────────────────────────────────┐
+┌────────────────────────────────────────────┐
 │ Operator (in command)                       │
-├─────────────────────────────────────────────┴
+├────────────────────────────────────────────┴
 │ Zen Garden visualizer     :8080             │
 │ Grok Zen Master (optional):4200             │
-├──────────┼──────────┼──────────┼────────────┤
+├─────────┼──────────┼──────────┼────────────┤
 │ Research │ Design   │ Publish  │ Strategy   │
 │ Finance  │ Archives │ Crew     │            │
-├─────────────────────────────────────────────┴
+├────────────────────────────────────────────┴
 │ Flavor overlay (identity, units, modules)   │
-├─────────────────────────────────────────────┴
+├────────────────────────────────────────────┴
 │ Declared base — Linux Mint 22.3 Cinnamon    │
-└─────────────────────────────────────────────┘
+└────────────────────────────────────────────┘
 ```
 
 Harbor does not fork the kernel. It customizes a declared base and keeps the operator able to run offline after setup. The orchestrator stays off unless `XAI_API_KEY` is present.
