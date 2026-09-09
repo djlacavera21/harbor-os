@@ -28,3 +28,14 @@ The workflow copies `experimentals/index.html` to the site root and also publish
 ## What this is not
 
 Enabling Pages does **not** add an Experimentals tab inside the official Grok iOS / Android / Web app. Only xAI can do that. The Pages site is the independent stand-in plus the catalog contract (`experimentals/catalog.json`) that tab would consume.
+
+## One-click owner action (required)
+
+Pages is still 404 as of 2026-09-09. Until the repository owner enables it at
+https://github.com/djlacavera21/harbor-os/settings/pages
+the live independent URL is the GitHub zip:
+
+https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip
+
+Recommended setting: Deploy from branch `main` / folder `/docs`.
+`docs/index.html` plus `docs/catalog.json` and `docs/.nojekyll` are the station.
