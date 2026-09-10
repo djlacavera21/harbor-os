@@ -1,9 +1,11 @@
 {
   "schema": "harbor-experimentals-catalog/v1",
-  "updated": "2026-09-08",
+  "updated": "2026-09-10",
   "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
   "source": "https://github.com/djlacavera21/harbor-os",
   "pages": "https://djlacavera21.github.io/harbor-os/",
+  "manifest": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/grok-app-manifest.json",
+  "contract": "https://github.com/djlacavera21/harbor-os/blob/main/docs/GROK_APP_CONTRACT.md",
   "note": "This catalog is the community Experimentals index. It is not an official xAI or Grok App surface. A future Grok App tab could consume this same schema.",
   "official": [
     {

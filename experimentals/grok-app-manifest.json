@@ -1,0 +1,60 @@
+{
+  "schema": "harbor-grok-app-manifest/v1",
+  "updated": "2026-09-10",
+  "product": "Harbor OS",
+  "codename": "FreshOS Zen Garden",
+  "affiliation": "independent",
+  "official_xai_product": false,
+  "cannot_mutate_grok_app": true,
+  "surfaces": {
+    "source": "https://github.com/djlacavera21/harbor-os",
+    "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
+    "pages_station": "https://djlacavera21.github.io/harbor-os/",
+    "catalog": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json",
+    "flavor_schema": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/spec/harbor-flavor.schema.json",
+    "submit_flavor": "https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml"
+  },
+  "proposed_grok_app_ia": {
+    "tab": "Experimentals",
+    "items": [
+      {
+        "id": "harbor-os",
+        "label": "Harbor OS",
+        "source": "catalog.official",
+        "min_subscription": "none",
+        "primary_action": "download_overlay_zip"
+      },
+      {
+        "id": "flavors",
+        "label": "Flavors",
+        "source": "catalog.official + catalog.community",
+        "min_subscription": "none",
+        "primary_action": "browse_and_download_flavor_yaml"
+      },
+      {
+        "id": "upload-flavor",
+        "label": "Upload flavor",
+        "submenu": true,
+        "min_subscription": "premium-plus",
+        "accepts": [".yaml", ".yml", ".zip"],
+        "max_bytes": 52428800,
+        "validator": "experimentals/validate_flavor.py",
+        "on_success": "queue catalog.community[] review"
+      }
+    ]
+  },
+  "upload_policy": [
+    "Must validate against harbor-flavor/v1",
+    "Must declare base distro honestly",
+    "Must not ship credentials or telemetry endpoints",
+    "Must not claim official xAI or Grok OS status",
+    "Unsigned community flavors are risk=unsigned",
+    "No ISO or disk images inside a flavor pack"
+  ],
+  "runtime": {
+    "visualizer": "http://127.0.0.1:8080",
+    "zen_master": "http://127.0.0.1:4200/docs",
+    "experimentals_local": "http://127.0.0.1:8088/experimentals/",
+    "base": "linuxmint 22.3 Cinnamon overlay — not a kernel fork"
+  }
+}
