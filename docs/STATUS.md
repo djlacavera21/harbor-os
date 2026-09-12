@@ -1,4 +1,4 @@
-# Harbor OS status — 12 September 2026
+# Harbor OS status — 12 September 2026 (Experimentals station v1.1)
 
 Harbor OS is a **declared-base overlay + flavor protocol**, not a from-scratch kernel
 and not an official xAI product.
@@ -60,3 +60,10 @@ chmod +x scripts/harborctl.sh installer/*.sh iso/customize.sh experimentals/vali
 HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply
 ./scripts/harborctl.sh validate flavors/template/harbor.flavor.yaml
 ```
+
+## 12 September 2026 evening
+
+- Experimentals station now uses Grok-app rehearsal chrome (Chat/Imagine/Voice muted; Experimentals active).
+- `docs/station.js` is a full copy of `experimentals/station.js` so branch-based Pages works without a second fetch.
+- Overlay zip artifact workflow added (not a Mint ISO).
+- Pages URL remains 404 until the owner enables Settings → Pages.

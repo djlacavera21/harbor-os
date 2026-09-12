@@ -1,0 +1,21 @@
+name: Overlay zip artifact
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pack overlay (not a Mint ISO)
+        run: |
+          mkdir -p dist
+          zip -r dist/harbor-os-overlay.zip README.md LICENSE docs experimentals flavors installer iso modules orchestrator scripts spec visualizer whitepaper
+          ls -lh dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: harbor-os-overlay
+          path: dist/harbor-os-overlay.zip

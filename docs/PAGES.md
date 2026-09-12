@@ -1,41 +1,31 @@
 # Enable the independent Experimentals link
 
-The catalog and station already exist. GitHub Pages is currently **404** because the repository has a deploy workflow but Pages is not switched on.
-
 Target URL after enable:
 
 `https://djlacavera21.github.io/harbor-os/`
 
-## Fastest path (branch / docs, no Actions required)
+That URL is still **404** until the repository owner flips Pages on. Grok / this agent cannot flip repository settings.
+
+## Fastest path (branch / docs)
 
 1. Open https://github.com/djlacavera21/harbor-os/settings/pages
-2. Under **Build and deployment → Source**, choose **Deploy from a branch**
+2. Source: **Deploy from a branch**
 3. Branch: `main`
 4. Folder: `/docs`
 5. Save
 
-`docs/index.html` is a self-contained Experimentals station (Harbor OS / Flavors / Upload Premium+ / About).
+`docs/index.html` is now self-contained (full `station.js`, Grok-app rehearsal chrome, Harbor OS / Flavors / Upload Premium+).
 
-## Actions path (already in the repo)
+## Actions path
 
 1. Same Pages settings page
 2. Source: **GitHub Actions**
-3. Open https://github.com/djlacavera21/harbor-os/actions/workflows/pages.yml
-4. Run workflow on `main`
-
-The workflow copies `experimentals/index.html` to the site root and also publishes visualizer, flavors, docs, and the whitepaper.
+3. Run `.github/workflows/pages.yml` on `main`
 
 ## What this is not
 
-Enabling Pages does **not** add an Experimentals tab inside the official Grok iOS / Android / Web app. Only xAI can do that. The Pages site is the independent stand-in plus the catalog contract (`experimentals/catalog.json`) that tab would consume.
+Enabling Pages does **not** add an Experimentals tab inside the official Grok iOS / Android / Web app. Only xAI can do that.
 
-## One-click owner action (required)
-
-Pages is still 404 as of 2026-09-09. Until the repository owner enables it at
-https://github.com/djlacavera21/harbor-os/settings/pages
-the live independent URL is the GitHub zip:
+Until Pages is on, the live independent download is:
 
 https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip
-
-Recommended setting: Deploy from branch `main` / folder `/docs`.
-`docs/index.html` plus `docs/catalog.json` and `docs/.nojekyll` are the station.
