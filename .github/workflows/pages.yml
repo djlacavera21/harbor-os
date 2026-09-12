@@ -18,15 +18,18 @@ jobs:
       - name: Stage Pages tree
         run: |
           mkdir -p _site/experimentals _site/visualizer _site/whitepaper _site/flavors _site/docs _site/spec
-          cp experimentals/index.html _site/index.html
+          cp docs/index.html _site/index.html
+          cp docs/catalog.json _site/catalog.json
           cp -a experimentals/. _site/experimentals/
-          cp experimentals/index.html _site/experimentals/station.html
+          cp docs/index.html _site/experimentals/index.html
+          cp docs/index.html _site/experimentals/station.html
           cp -a visualizer/. _site/visualizer/
           cp -a whitepaper/. _site/whitepaper/
           cp -a flavors/. _site/flavors/
           cp -a docs/. _site/docs/
           cp -a spec/. _site/spec/
           cp README.md _site/README.md
+          touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

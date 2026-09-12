@@ -1,4 +1,4 @@
-# Harbor OS status — 11 September 2026
+# Harbor OS status — 12 September 2026
 
 Harbor OS is a **declared-base overlay + flavor protocol**, not a from-scratch kernel
 and not an official xAI product.
@@ -23,7 +23,7 @@ and not an official xAI product.
 - Zen Garden visualizer on `127.0.0.1:8080`
 - Optional Grok Zen Master on `127.0.0.1:4200` (needs `XAI_API_KEY`)
 - `harbor-flavor/v1` YAML + validator
-- Experimentals station UI that rehearses the proposed Grok App IA
+- Experimentals station UI that rehearses the proposed Grok App IA (`#official`, `#flavors`, `#upload`)
 - Cubic notes so an operator can bake their own bootable ISO from an official Mint image
 
 ## What Harbor is not
@@ -38,7 +38,7 @@ and not an official xAI product.
 
 ```
 Grok App                         Independent station (ships today)
- └── Experimentals                docs/index.html + experimentals/
+ └── Experimentals                docs/index.html (hash routes #official #flavors #upload) + experimentals/
       ├── Harbor OS               official catalog + zip
       ├── Flavors                 official + community YAML
       └── Upload flavor           X Premium+ only
@@ -55,7 +55,7 @@ git clone https://github.com/djlacavera21/harbor-os.git
 cd harbor-os
 chmod +x scripts/harborctl.sh installer/*.sh iso/customize.sh experimentals/validate_flavor.py
 ./scripts/harborctl.sh garden          # http://127.0.0.1:8080
-./scripts/harborctl.sh experimentals   # http://127.0.0.1:8088/experimentals/
+./scripts/harborctl.sh experimentals   # http://127.0.0.1:8088/docs/  and /experimentals/
 ./scripts/harborctl.sh station         # TUI agent station
 HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply
 ./scripts/harborctl.sh validate flavors/template/harbor.flavor.yaml
