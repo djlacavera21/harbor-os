@@ -1,6 +1,6 @@
 {
   "schema": "harbor-grok-app-manifest/v1",
-  "updated": "2026-09-11",
+  "updated": "2026-09-12",
   "product": "Harbor OS",
   "codename": "FreshOS Zen Garden",
   "affiliation": "independent",

@@ -1,6 +1,6 @@
 {
   "schema": "harbor-experimentals-catalog/v1",
-  "updated": "2026-09-11",
+  "updated": "2026-09-12",
   "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
   "source": "https://github.com/djlacavera21/harbor-os",
   "pages": "https://djlacavera21.github.io/harbor-os/",
