@@ -2,7 +2,7 @@
 
 **Audience:** Grok App / X product engineering  
 **From:** Harbor OS (independent overlay at `djlacavera21/harbor-os`)  
-**Date:** 2026-09-11  
+**Date:** 2026-09-13  
 **Ask:** Consume the existing catalog. Do not invent a new file type.
 
 This document does not grant Harbor OS official status. It is a ready-to-implement
