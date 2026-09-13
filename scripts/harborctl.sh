@@ -17,6 +17,7 @@ Usage: harborctl.sh <command>
   station         TUI Agent Station (air-gap friendly)
   catalog         Print official + community flavor ids
   links           Print independent download URLs
+  pack            Build dist/harbor-os-<version>-overlay.zip
   help            This text
 EOF
 }
@@ -49,10 +50,17 @@ case "$cmd" in
 source     https://github.com/djlacavera21/harbor-os
 zip        https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip
 pages      https://djlacavera21.github.io/harbor-os/
+station    https://djlacavera21.github.io/harbor-os/#official
+flavors    https://djlacavera21.github.io/harbor-os/#flavors
+upload     https://djlacavera21.github.io/harbor-os/#upload
 catalog    https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json
 manifest   https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/grok-app-manifest.json
 submit     https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml
+guide      https://github.com/djlacavera21/harbor-os/blob/main/docs/DOWNLOAD.md
 EOF
+    ;;
+  pack)
+    exec bash "$ROOT/scripts/pack-overlay.sh" "${1:-$ROOT/dist}"
     ;;
   catalog)
     python3 - <<PY

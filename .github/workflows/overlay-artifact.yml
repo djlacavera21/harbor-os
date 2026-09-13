@@ -2,6 +2,7 @@ name: Overlay zip artifact
 on:
   workflow_dispatch:
   push:
+    branches: [main]
     tags: ["v*"]
 permissions:
   contents: write
@@ -12,10 +13,23 @@ jobs:
       - uses: actions/checkout@v4
       - name: Pack overlay (not a Mint ISO)
         run: |
-          mkdir -p dist
-          zip -r dist/harbor-os-overlay.zip README.md LICENSE docs experimentals flavors installer iso modules orchestrator scripts spec visualizer whitepaper
+          chmod +x scripts/pack-overlay.sh
+          if command -v rsync >/dev/null; then
+            ./scripts/pack-overlay.sh dist
+          else
+            VERSION=$(tr -d '[:space:]' < VERSION)
+            mkdir -p dist
+            zip -r "dist/harbor-os-${VERSION}-overlay.zip" README.md LICENSE VERSION docs experimentals flavors installer iso modules orchestrator scripts spec visualizer whitepaper
+            cp "dist/harbor-os-${VERSION}-overlay.zip" dist/harbor-os-overlay.zip
+          fi
           ls -lh dist
       - uses: actions/upload-artifact@v4
         with:
           name: harbor-os-overlay
-          path: dist/harbor-os-overlay.zip
+          path: dist/*.zip
+      - name: Attach zip to tag release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          generate_release_notes: true
