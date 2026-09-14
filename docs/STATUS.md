@@ -1,4 +1,4 @@
-# Harbor OS status — 13 September 2026 (overlay 1.1.0)
+# Harbor OS status — 14 September 2026 (overlay 1.2.0)
 
 Harbor OS is a **declared-base overlay + flavor protocol**, not a from-scratch kernel
 and not an official xAI product.
@@ -19,7 +19,7 @@ and not an official xAI product.
 
 - Overlay for Linux Mint 22.3 Cinnamon (Debian-family also accepted)
 - Official flavor: FreshOS Zen Garden (`flavors/zen-garden`)
-- Community flavors: War Room, Research, Airgap TUI, Publishing
+- Community flavors: War Room, Research, Airgap TUI, Publishing, Finance
 - Zen Garden visualizer on `127.0.0.1:8080`
 - Optional Grok Zen Master on `127.0.0.1:4200` (needs `XAI_API_KEY`)
 - `harbor-flavor/v1` YAML + validator
@@ -60,6 +60,14 @@ chmod +x scripts/harborctl.sh installer/*.sh iso/customize.sh experimentals/vali
 HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply
 ./scripts/harborctl.sh validate flavors/template/harbor.flavor.yaml
 ```
+
+## 14 September 2026
+
+- Overlay **1.2.0**.
+- Community flavor: Finance Harbor (`flavors/finance-harbor`).
+- Working module tools: `modules/finance/ledger.py`, `modules/research/collect.py`, `modules/war-room/scenario.py`.
+- `harborctl new-flavor <slug> "<name>"` scaffolds a Premium+ upload candidate.
+- Independent download remains the overlay zip. Official Grok App Experimentals tab is still xAI-owned.
 
 ## 13 September 2026
 
