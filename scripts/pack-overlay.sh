@@ -8,8 +8,9 @@ NAME="harbor-os-${VERSION}-overlay.zip"
 mkdir -p "$OUT_DIR"
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
-rsync -a --exclude '.git' --exclude 'dist' --exclude '_site' --exclude '*.iso' --exclude '*.img' \
-  "$ROOT/" "$STAGE/harbor-os/"
+mkdir -p "$STAGE/harbor-os"
+tar -C "$ROOT" --exclude='.git' --exclude='dist' --exclude='_site' \
+  --exclude='*.iso' --exclude='*.img' -cf - . | tar -C "$STAGE/harbor-os" -xf -
 (
   cd "$STAGE"
   zip -r "$OUT_DIR/$NAME" harbor-os \

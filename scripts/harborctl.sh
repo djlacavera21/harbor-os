@@ -18,6 +18,7 @@ Usage: harborctl.sh <command>
   catalog         Print official + community flavor ids
   links           Print independent download URLs
   pack            Build dist/harbor-os-<version>-overlay.zip
+  new-flavor      Scaffold flavors/<slug>/harbor.flavor.yaml
   help            This text
 EOF
 }
@@ -61,6 +62,9 @@ EOF
     ;;
   pack)
     exec bash "$ROOT/scripts/pack-overlay.sh" "${1:-$ROOT/dist}"
+    ;;
+  new-flavor)
+    exec bash "$ROOT/scripts/new-flavor.sh" "${1:-}" "${2:-}"
     ;;
   catalog)
     python3 - <<PY
