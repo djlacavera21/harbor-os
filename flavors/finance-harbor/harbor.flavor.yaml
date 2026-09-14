@@ -1,0 +1,77 @@
+schema: harbor-flavor/v1
+id: finance-harbor
+name: Finance Harbor
+version: 0.1.0
+license: MIT
+author:
+  name: FreshOS Development Collective
+  url: https://github.com/djlacavera21/harbor-os
+summary: Sovereignty-first ledger, reserve notes, and trade modeling workspace.
+description: |
+  Community flavor that weights the Finance Wing. Local ledger files stay
+  offline. Orchestrator remains optional. Does not claim official xAI status.
+tags:
+  - finance
+  - community
+  - sovereignty
+base:
+  distro: linuxmint
+  release: "22.3"
+  desktop: cinnamon
+  min_ram_mb: 4096
+  arch:
+    - x86_64
+identity:
+  os_name: HarborOS
+  codename: Treasury
+  pretty_name: Harbor OS Treasury
+  hostname_prefix: treasury
+alignment:
+  principles:
+    - Sovereignty first
+    - Visual clarity over opacity
+    - Long-term orientation
+  operator_role: Treasurer
+  agent_role: Vizier
+  offline_first: true
+  telemetry: none
+visualizer:
+  id: zen-garden
+  port: 8080
+  theme: raked-sand
+  metaphor: Reserves as stones. Cashflow as raked sand. Counterparties as lanterns.
+orchestrator:
+  id: grok-zen-master
+  port: 4200
+  provider: xai-grok
+  model: grok-4
+  requires_api_key: true
+modules:
+  - id: finance
+    name: Finance Wing
+    enabled: true
+    description: Local ledger, reserve notes, trade sketches.
+  - id: archives
+    name: Archives and Memory
+    enabled: true
+    description: Statement and contract archive.
+  - id: war-room
+    name: Strategy Room
+    enabled: true
+    description: Scenario stress tests against the ledger.
+  - id: research
+    name: Research Wing
+    enabled: false
+    description: Optional source intake.
+services:
+  - unit: harbor-visualizer.service
+    enabled: true
+    wanted_by: graphical.target
+  - unit: harbor-zen-master.service
+    enabled: false
+    wanted_by: multi-user.target
+experimentals:
+  listed: true
+  upload_allowed: true
+  min_subscription: none
+  risk: unsigned
