@@ -41,7 +41,7 @@ The upload *gate* is a product decision for xAI. The upload *format* is specifie
 | --- | --- |
 | Flavor spec `harbor-flavor/v1` | Done |
 | Official flavor: FreshOS Zen Garden | Done |
-| Community flavors: War Room, Research, Airgap TUI, Publishing | Done (unsigned) |
+| Community flavors: War Room, Research, Airgap TUI, Publishing, Finance | Done (unsigned) |
 | Community template + validator | Done |
 | Zen Garden visualizer (`:8080`) | Runnable |
 | Grok Zen Master orchestrator (`:4200`) | Runnable, optional API key |
@@ -87,6 +87,14 @@ HARBOR_FLAVOR_ID=war-room ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=research-harbor ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=airgap-tui ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=publishing-harbor ./scripts/harborctl.sh apply
+HARBOR_FLAVOR_ID=finance-harbor ./scripts/harborctl.sh apply
+```
+
+Author a new community flavor (the same document the proposed Grok App Premium+ submenu would accept):
+
+```bash
+./scripts/harborctl.sh new-flavor my-harbor "My Harbor"
+./scripts/harborctl.sh validate flavors/my-harbor/harbor.flavor.yaml
 ```
 
 ## Flavors
@@ -99,6 +107,7 @@ flavors/war-room/harbor.flavor.yaml           community
 flavors/research-harbor/harbor.flavor.yaml    community
 flavors/airgap-tui/harbor.flavor.yaml         community
 flavors/publishing-harbor/harbor.flavor.yaml  community
+flavors/finance-harbor/harbor.flavor.yaml     community
 flavors/template/harbor.flavor.yaml           start here
 ```
 
@@ -110,23 +119,9 @@ Schema: [`spec/harbor-flavor.schema.json`](spec/harbor-flavor.schema.json).
 
 ## Architecture
 
-```text
-┌────────────────────────────────────────────┐
-│ Operator (in command)                       │
-├────────────────────────────────────────────┴
-│ Zen Garden visualizer     :8080             │
-│ Grok Zen Master (optional):4200             │
-├─────────┼──────────┼──────────┼────────────┤
-│ Research │ Design   │ Publish  │ Strategy   │
-│ Finance  │ Archives │ Crew     │            │
-├────────────────────────────────────────────┴
-│ Flavor overlay (identity, units, modules)   │
-├────────────────────────────────────────────┴
-│ Declared base — Linux Mint 22.3 Cinnamon    │
-└────────────────────────────────────────────┘
-```
+Harbor does not fork the kernel. It customizes a declared Linux Mint 22.3 Cinnamon base and keeps the operator able to run offline after setup. The orchestrator stays off unless `XAI_API_KEY` is present.
 
-Harbor does not fork the kernel. It customizes a declared base and keeps the operator able to run offline after setup. The orchestrator stays off unless `XAI_API_KEY` is present.
+Visualizer `:8080`. Optional Zen Master `:4200`. Modules: Research, Design, Publish, Strategy, Finance, Archives, Crew.
 
 ## Bootable ISO
 
