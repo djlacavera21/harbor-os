@@ -50,10 +50,11 @@ case "$cmd" in
     cat <<'EOF'
 source     https://github.com/djlacavera21/harbor-os
 zip        https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip
-pages      https://djlacavera21.github.io/harbor-os/
-station    https://djlacavera21.github.io/harbor-os/#official
-flavors    https://djlacavera21.github.io/harbor-os/#flavors
-upload     https://djlacavera21.github.io/harbor-os/#upload
+preview    https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html
+pages      https://djlacavera21.github.io/harbor-os/   (owner must enable Pages)
+station    https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html#official
+flavors    https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html#flavors
+upload     https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html#upload
 catalog    https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json
 manifest   https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/grok-app-manifest.json
 submit     https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml
@@ -79,6 +80,7 @@ for item in c.get("community", []):
     print(f"  {item['id']:20} {item['name']}  [{item.get('risk','?')}]")
 print("download:", c.get("independent_download"))
 print("pages:", c.get("pages"))
+print("preview:", c.get("independent_station_preview"))
 PY
     ;;
   help|-h|--help)

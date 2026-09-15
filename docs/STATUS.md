@@ -1,4 +1,4 @@
-# Harbor OS status — 14 September 2026 (overlay 1.2.0)
+# Harbor OS status — 15 September 2026 (overlay 1.3.0)
 
 Harbor OS is a **declared-base overlay + flavor protocol**, not a from-scratch kernel
 and not an official xAI product.
@@ -12,6 +12,7 @@ and not an official xAI product.
 | Catalog (app contract) | https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json | Public |
 | Manifest | https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/grok-app-manifest.json | Public |
 | Flavor submit | https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml | Public |
+| Live station preview | https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html | Public, no Pages required |
 | Pages station | https://djlacavera21.github.io/harbor-os/ | **Owner must enable Pages** |
 | Official Grok App tab | — | **Not shippable from this repo** |
 
@@ -61,6 +62,14 @@ HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply
 ./scripts/harborctl.sh validate flavors/template/harbor.flavor.yaml
 ```
 
+## 15 September 2026
+
+- Overlay **1.3.0**.
+- Experimentals station is now self-contained (inlined CSS + JS) so the independent htmlpreview link renders without GitHub Pages.
+- Live preview: https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html
+- `docs/station.js` is the full runtime again (not a loader stub).
+- Official Grok App Experimentals tab remains xAI-owned.
+
 ## 14 September 2026
 
 - Overlay **1.2.0**.
@@ -68,17 +77,3 @@ HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply
 - Working module tools: `modules/finance/ledger.py`, `modules/research/collect.py`, `modules/war-room/scenario.py`.
 - `harborctl new-flavor <slug> "<name>"` scaffolds a Premium+ upload candidate.
 - Independent download remains the overlay zip. Official Grok App Experimentals tab is still xAI-owned.
-
-## 13 September 2026
-
-- Overlay version **1.1.0**. `VERSION` file + `scripts/pack-overlay.sh` + `harborctl pack`.
-- `docs/station.js` is now the full station runtime (not a loader stub) so `main` / `/docs` Pages works offline from that folder.
-- First-boot starts the visualizer if port 8080 is quiet and opens the Experimentals station.
-- Overlay-artifact workflow packs on `main` and attaches zips to `v*` tags.
-- Independent download guide: `docs/DOWNLOAD.md`.
-- Pages URL remains 404 until the owner enables Settings → Pages (Actions or branch `main` / `/docs`).
-
-## 12 September 2026 evening
-
-- Experimentals station now uses Grok-app rehearsal chrome (Chat/Imagine/Voice muted; Experimentals active).
-- Overlay zip artifact workflow added (not a Mint ISO).

@@ -1,6 +1,6 @@
 {
   "schema": "harbor-grok-app-manifest/v1",
-  "updated": "2026-09-14",
+  "updated": "2026-09-15",
   "product": "Harbor OS",
   "codename": "FreshOS Zen Garden",
   "affiliation": "independent",
@@ -10,6 +10,7 @@
     "source": "https://github.com/djlacavera21/harbor-os",
     "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
     "pages_station": "https://djlacavera21.github.io/harbor-os/",
+    "independent_station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
     "catalog": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json",
     "flavor_schema": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/spec/harbor-flavor.schema.json",
     "submit_flavor": "https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml",
