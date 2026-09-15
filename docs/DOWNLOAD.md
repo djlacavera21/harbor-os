@@ -9,7 +9,8 @@ Harbor OS is an overlay, not a relicensed Linux Mint ISO and not an official xAI
 | Source | https://github.com/djlacavera21/harbor-os | none |
 | Rolling zip | https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip | none |
 | Versioned overlay zip | produced by `scripts/pack-overlay.sh` and the overlay-artifact workflow | none |
-| Experimentals station | https://djlacavera21.github.io/harbor-os/ | none, after Pages enable |
+| Live station preview | https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html | none |
+| Experimentals Pages | https://djlacavera21.github.io/harbor-os/ | none, after Pages enable |
 | Catalog (App contract) | https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json | none |
 | Manifest | https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/grok-app-manifest.json | none |
 | Submit a flavor | https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml | GitHub account |

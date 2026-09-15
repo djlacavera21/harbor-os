@@ -8,7 +8,8 @@
 | --- | --- |
 | Source | [github.com/djlacavera21/harbor-os](https://github.com/djlacavera21/harbor-os) |
 | Zip | [harbor-os-main.zip](https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip) |
-| Experimentals station | [djlacavera21.github.io/harbor-os](https://djlacavera21.github.io/harbor-os/) — enable Pages first, see [docs/PAGES.md](docs/PAGES.md) |
+| Live station preview | [htmlpreview Experimentals](https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html) — works without Pages |
+| Pages station | [djlacavera21.github.io/harbor-os](https://djlacavera21.github.io/harbor-os/) — owner enable, see [docs/PAGES.md](docs/PAGES.md) |
 | Catalog (App contract) | [experimentals/catalog.json](https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json) |
 | Flavor upload issue | [Submit a flavor](https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml) |
 
@@ -48,6 +49,7 @@ The upload *gate* is a product decision for xAI. The upload *format* is specifie
 | One-command overlay installer + `harborctl` | Done |
 | Cubic notes for a bootable Mint ISO | Documented |
 | Experimentals catalog + station | Done |
+| Independent station preview | Live via htmlpreview (no Pages required) |
 | Independent Pages link | Ready — owner must enable Pages ([docs/PAGES.md](docs/PAGES.md)) |
 | Official Grok App Experimentals tab | **Not in this repo's power** |
 

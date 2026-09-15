@@ -1,5 +1,11 @@
 # Enable the independent Experimentals link
 
+Until Pages is enabled, use the live preview that does **not** need repository settings:
+
+https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html
+
+`docs/index.html` is self-contained (CSS and station runtime inlined) so that preview renders the Harbor OS / Flavors / Upload Premium+ IA.
+
 Target URL after enable:
 
 `https://djlacavera21.github.io/harbor-os/`
