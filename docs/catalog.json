@@ -1,7 +1,7 @@
 {
   "schema": "harbor-experimentals-catalog/v1",
-  "updated": "2026-09-15",
-  "version": "1.3.0",
+  "updated": "2026-09-16",
+  "version": "1.4.0",
   "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
   "source": "https://github.com/djlacavera21/harbor-os",
   "pages": "https://djlacavera21.github.io/harbor-os/",
@@ -11,7 +11,31 @@
   "download_guide": "https://github.com/djlacavera21/harbor-os/blob/main/docs/DOWNLOAD.md",
   "independent_station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
   "note": "This catalog is the community Experimentals index. It is not an official xAI or Grok App surface. Zip + htmlpreview station work without Pages. A future Grok App tab could consume this same schema.",
-  "official": [{"id": "zen-garden", "name": "FreshOS Zen Garden Edition", "version": "1.3.0", "channel": "official", "download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip", "source": "https://github.com/djlacavera21/harbor-os", "flavor": "flavors/zen-garden/harbor.flavor.yaml", "risk": "low", "min_subscription": "none", "summary": "Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, TUI agent station, and optional Grok Zen Master. Overlay 1.3.0."}],
-  "community": [{"id": "war-room", "name": "War Room Harbor", "version": "0.1.0", "channel": "community", "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/war-room", "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/war-room", "flavor": "flavors/war-room/harbor.flavor.yaml", "risk": "unsigned", "min_subscription": "none", "summary": "Strategy-first module weighting: scenario board, alliance map, long-horizon notes."}, {"id": "research-harbor", "name": "Research Harbor", "version": "0.1.0", "channel": "community", "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/research-harbor", "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/research-harbor", "flavor": "flavors/research-harbor/harbor.flavor.yaml", "risk": "unsigned", "min_subscription": "none", "summary": "Research wing default: source inbox, verification notes, offline synthesis drafts."}, {"id": "airgap-tui", "name": "Airgap TUI Station", "version": "0.1.0", "channel": "community", "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/airgap-tui", "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/airgap-tui", "flavor": "flavors/airgap-tui/harbor.flavor.yaml", "risk": "unsigned", "min_subscription": "none", "summary": "Minimal TUI-oriented flavor. Orchestrator off. Visualizer optional. Air-gap friendly."}, {"id": "publishing-harbor", "name": "Publishing Harbor", "version": "0.1.0", "channel": "community", "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/publishing-harbor", "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/publishing-harbor", "flavor": "flavors/publishing-harbor/harbor.flavor.yaml", "risk": "unsigned", "min_subscription": "none", "summary": "Outbound drafts, local archive, design assets. Upload gate proposed as X Premium+."}, {"id": "finance-harbor", "name": "Finance Harbor", "version": "0.1.0", "channel": "community", "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/finance-harbor", "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/finance-harbor", "flavor": "flavors/finance-harbor/harbor.flavor.yaml", "risk": "unsigned", "min_subscription": "none", "summary": "Local ledger, reserve notes, and sovereignty-focused trade sketches. Offline by default."}],
-  "community_upload": {"enabled_locally": true, "proposed_grok_app_gate": "X Premium+", "accepts": [".yaml", ".yml", ".zip"], "max_bytes": 52428800, "submit_issue": "https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml", "rules": ["Must validate against harbor-flavor/v1", "Must declare base distro honestly", "Must not ship credentials or telemetry endpoints", "Must not claim official xAI status", "Unsigned community flavors are risk=unsigned", "No ISO or disk images inside a flavor pack"]}
+  "official": [{
+    "id": "zen-garden",
+    "name": "FreshOS Zen Garden Edition",
+    "version": "1.4.0",
+    "channel": "official",
+    "download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
+    "source": "https://github.com/djlacavera21/harbor-os",
+    "flavor": "flavors/zen-garden/harbor.flavor.yaml",
+    "risk": "low",
+    "min_subscription": "none",
+    "summary": "Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, TUI agent station, and optional Grok Zen Master. Overlay 1.4.0. Self-contained Experimentals station."
+  }],
+  "community": [
+    {"id": "war-room", "name": "War Room Harbor", "version": "0.1.0", "channel": "community", "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/war-room", "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/war-room", "flavor": "flavors/war-room/harbor.flavor.yaml", "risk": "unsigned", "min_subscription": "none", "summary": "Strategy-first module weighting: scenario board, alliance map, long-horizon notes."},
+    {"id": "research-harbor", "name": "Research Harbor", "version": "0.1.0", "channel": "community", "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/research-harbor", "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/research-harbor", "flavor": "flavors/research-harbor/harbor.flavor.yaml", "risk": "unsigned", "min_subscription": "none", "summary": "Research wing default: source inbox, verification notes, offline synthesis drafts."},
+    {"id": "airgap-tui", "name": "Airgap TUI Station", "version": "0.1.0", "channel": "community", "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/airgap-tui", "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/airgap-tui", "flavor": "flavors/airgap-tui/harbor.flavor.yaml", "risk": "unsigned", "min_subscription": "none", "summary": "Minimal TUI-oriented flavor. Orchestrator off. Visualizer optional. Air-gap friendly."},
+    {"id": "publishing-harbor", "name": "Publishing Harbor", "version": "0.1.0", "channel": "community", "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/publishing-harbor", "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/publishing-harbor", "flavor": "flavors/publishing-harbor/harbor.flavor.yaml", "risk": "unsigned", "min_subscription": "none", "summary": "Outbound drafts, local archive, design assets. Upload gate proposed as X Premium+."},
+    {"id": "finance-harbor", "name": "Finance Harbor", "version": "0.1.0", "channel": "community", "download": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/finance-harbor", "source": "https://github.com/djlacavera21/harbor-os/tree/main/flavors/finance-harbor", "flavor": "flavors/finance-harbor/harbor.flavor.yaml", "risk": "unsigned", "min_subscription": "none", "summary": "Local ledger, reserve notes, and sovereignty-focused trade sketches. Offline by default."}
+  ],
+  "community_upload": {
+    "enabled_locally": true,
+    "proposed_grok_app_gate": "X Premium+",
+    "accepts": [".yaml", ".yml", ".zip"],
+    "max_bytes": 52428800,
+    "submit_issue": "https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml",
+    "rules": ["Must validate against harbor-flavor/v1", "Must declare base distro honestly", "Must not ship credentials or telemetry endpoints", "Must not claim official xAI status", "Unsigned community flavors are risk=unsigned", "No ISO or disk images inside a flavor pack"]
+  }
 }
