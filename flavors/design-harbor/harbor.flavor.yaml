@@ -1,0 +1,76 @@
+schema: harbor-flavor/v1
+id: design-harbor
+name: Design Harbor
+version: 0.1.0
+license: MIT
+author:
+  name: FreshOS Development Collective
+  url: https://github.com/djlacavera21/harbor-os
+summary: Visual production flavor — emblems, posters, and asset briefs stay local.
+description: |
+  Community Harbor flavor that weights the Design Wing. Compose briefs with
+  modules/design/compose.py. Does not claim official xAI or Grok OS status.
+  Orchestrator remains optional. Suitable as a Premium+ upload rehearsal pack.
+tags:
+  - community
+  - design
+  - propaganda-assets
+  - offline-first
+base:
+  distro: linuxmint
+  release: "22.3"
+  desktop: cinnamon
+  min_ram_mb: 4096
+  arch:
+    - x86_64
+identity:
+  os_name: HarborOS
+  codename: Design Harbor
+  pretty_name: Harbor OS Design Harbor
+  hostname_prefix: design-harbor
+alignment:
+  principles:
+    - Sovereignty first
+    - Visual clarity over opacity
+    - Value coherence with the operator's stated goals
+  operator_role: Operator
+  agent_role: Advisor
+  offline_first: true
+  telemetry: none
+visualizer:
+  id: zen-garden
+  port: 8080
+  theme: raked-sand
+  metaphor: Stones become marks. Lanterns become published signals.
+orchestrator:
+  id: grok-zen-master
+  port: 4200
+  provider: xai-grok
+  model: grok-4
+  requires_api_key: true
+modules:
+  - id: design
+    name: Design Wing
+    enabled: true
+    description: Emblem and poster briefs composed locally.
+  - id: publishing
+    name: Publishing Wing
+    enabled: true
+    description: Stage finished assets without a required cloud account.
+  - id: archives
+    name: Archives and Memory
+    enabled: true
+    description: Keep prior marks retrievable.
+  - id: crew
+    name: Crew Quarters
+    enabled: true
+    description: Daily production cadence.
+services:
+  - unit: harbor-visualizer.service
+    enabled: true
+    wanted_by: graphical.target
+experimentals:
+  listed: true
+  upload_allowed: true
+  min_subscription: premium-plus
+  risk: unsigned

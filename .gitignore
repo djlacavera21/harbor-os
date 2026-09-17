@@ -7,3 +7,5 @@ zen-master.env
 *.iso
 *.img
 .DS_Store
+dist/
+experimentals/inbox/*.json
