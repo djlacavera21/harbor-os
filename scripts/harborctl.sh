@@ -19,6 +19,8 @@ Usage: harborctl.sh <command>
   links           Print independent download URLs
   pack            Build dist/harbor-os-<version>-overlay.zip
   new-flavor      Scaffold flavors/<slug>/harbor.flavor.yaml
+  ingest          Local Premium+ upload rehearsal on :8090
+  selftest        Validate every flavor and refuse ISO leakage
   help            This text
 EOF
 }
@@ -63,6 +65,12 @@ EOF
     ;;
   pack)
     exec bash "$ROOT/scripts/pack-overlay.sh" "${1:-$ROOT/dist}"
+    ;;
+  ingest)
+    exec python3 "$ROOT/experimentals/ingest.py"
+    ;;
+  selftest)
+    exec bash "$ROOT/scripts/selftest.sh"
     ;;
   new-flavor)
     exec bash "$ROOT/scripts/new-flavor.sh" "${1:-}" "${2:-}"

@@ -75,6 +75,24 @@ class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
     def do_GET(self):
+        if self.path.startswith("/api/empire"):
+            modules_root = ROOT.parent / "modules"
+            wings = []
+            if modules_root.exists():
+                for child in sorted(modules_root.iterdir()):
+                    if child.is_dir() and not child.name.startswith("."):
+                        files = [p.name for p in child.iterdir() if p.is_file()]
+                        wings.append({"id": child.name, "files": files[:12]})
+            payload = {"flavor": flavor_id(), "wings": wings, "overlay": "1.5.0"}
+            body = json.dumps(payload).encode()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
         if self.path.startswith("/api/metrics"):
             payload = {
                 "load": round(read_cpu_load(), 3),
@@ -83,6 +101,7 @@ class Handler(SimpleHTTPRequestHandler):
                 "agents": 1 if os.environ.get("XAI_API_KEY") else 0,
                 "uptime_s": int(time.time() - STARTED),
                 "flavor": flavor_id(),
+                "overlay": "1.5.0",
             }
             body = json.dumps(payload).encode()
             self.send_response(200)
