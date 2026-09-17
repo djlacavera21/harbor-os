@@ -9,7 +9,7 @@ except ImportError:
     yaml = None
 REQUIRED = ("schema", "id", "name", "version", "base", "identity")
 ALLOWED_DISTROS = {"linuxmint", "debian", "ubuntu", "fedora", "arch", "none"}
-SECRET_MARKERS = ("api_key", "xai_api_key", "begin rsa private", "begin openssh private", "sk-proj-", "sk-or-")
+SECRET_MARKERS = ("xai_api_key:", "openai_api_key", "begin rsa private", "begin openssh private", "sk-proj-", "sk-or-", "sk-ant-")
 FORBIDDEN_CLAIMS = ("official xai os", "official grok os", "official xai operating system", "official grok operating system")
 
 def load(path: Path) -> dict:

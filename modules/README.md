@@ -6,14 +6,19 @@ They are workspaces, not daemons. The visualizer watches the machine; the operat
 | Path | Wing | Starter file |
 | --- | --- | --- |
 | `research/` | Source inbox and verification notes | `INBOX.md`, `PROTOCOL.md` |
-| `design/` | Emblems, posters, visual assets | `BRIEF.md` |
+| `design/` | Emblems, posters, visual assets | `BRIEF.md`, `compose.py` |
 | `publishing/` | Outbound drafts and archive staging | `OUTBOUND.md` |
 | `war-room/` | Scenario board and alliance notes | `BOARD.md` |
 | `finance/` | Sovereignty ledger | `LEDGER.md` |
-| `archives/` | Long-term memory | `INDEX.md` |
+| `archives/` | Long-term memory | `INDEX.md`, `index.py` |
 | `crew/` | Standing orders for the operator | `STANDING-ORDERS.md` |
 
 A community flavor may enable or disable wings in `harbor.flavor.yaml`.
 Do not put API keys or secrets in these files.
 
 Open them from the TUI with `./scripts/harborctl.sh station`.
+
+```bash
+python3 modules/design/compose.py "Harbor mark" --mark orb --format emblem
+python3 modules/archives/index.py
+```
