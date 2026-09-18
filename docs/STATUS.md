@@ -1,4 +1,4 @@
-# Harbor OS status — 17 September 2026 (overlay 1.5.0)
+# Harbor OS status — 18 September 2026 (overlay 1.6.0)
 
 Harbor OS is a **declared-base overlay + flavor protocol**, not a from-scratch kernel
 and not an official xAI product.
@@ -16,6 +16,14 @@ and not an official xAI product.
 | Pages station | https://djlacavera21.github.io/harbor-os/ | **Owner must enable Pages** |
 | Official Grok App tab | — | **Not shippable from this repo** |
 
+## 18 September 2026
+
+- Overlay **1.6.0**.
+- New community flavor: Crew Quarters Harbor.
+- Crew briefing tool: `python3 modules/crew/briefing.py "today's watch"`.
+- Official Zen Garden flavor identity 1.6.
+- Official Grok App Experimentals tab remains xAI-owned. Independent download is the overlay zip.
+
 ## 17 September 2026
 
 - Overlay **1.5.0**.
@@ -23,4 +31,3 @@ and not an official xAI product.
 - Local Premium+ ingest rehearsal: `./scripts/harborctl.sh ingest` on `:8090`.
 - `harborctl selftest` validates every flavor and refuses ISO leakage.
 - Design Wing `compose.py` and Archives `index.py` are runnable offline.
-- Official Grok App Experimentals tab remains xAI-owned. Independent download is the overlay zip.
