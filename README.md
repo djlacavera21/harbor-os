@@ -42,7 +42,7 @@ The upload *gate* is a product decision for xAI. The upload *format* is specifie
 | --- | --- |
 | Flavor spec `harbor-flavor/v1` | Done |
 | Official flavor: FreshOS Zen Garden | Done |
-| Community flavors: War Room, Research, Airgap TUI, Publishing, Finance | Done (unsigned) |
+| Community flavors: War Room, Research, Airgap TUI, Publishing, Finance, Design, Crew Quarters | Done (unsigned) |
 | Community template + validator | Done |
 | Zen Garden visualizer (`:8080`) | Runnable |
 | Grok Zen Master orchestrator (`:4200`) | Runnable, optional API key |
@@ -90,6 +90,8 @@ HARBOR_FLAVOR_ID=research-harbor ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=airgap-tui ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=publishing-harbor ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=finance-harbor ./scripts/harborctl.sh apply
+HARBOR_FLAVOR_ID=design-harbor ./scripts/harborctl.sh apply
+HARBOR_FLAVOR_ID=crew-quarters ./scripts/harborctl.sh apply
 ```
 
 Author a new community flavor (the same document the proposed Grok App Premium+ submenu would accept):
@@ -110,6 +112,8 @@ flavors/research-harbor/harbor.flavor.yaml    community
 flavors/airgap-tui/harbor.flavor.yaml         community
 flavors/publishing-harbor/harbor.flavor.yaml  community
 flavors/finance-harbor/harbor.flavor.yaml     community
+flavors/design-harbor/harbor.flavor.yaml      community
+flavors/crew-quarters/harbor.flavor.yaml      community
 flavors/template/harbor.flavor.yaml           start here
 ```
 
