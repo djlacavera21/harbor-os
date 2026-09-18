@@ -1,0 +1,77 @@
+schema: harbor-flavor/v1
+id: crew-quarters
+name: Crew Quarters Harbor
+version: 0.1.0
+license: MIT
+author:
+  name: FreshOS Development Collective
+  url: https://github.com/djlacavera21/harbor-os
+summary: Operator-first flavor. Daily briefing, standing orders, and a quiet Crew Quarters workspace.
+description: |
+  Community flavor for the operator environment described in the FreshOS
+  whitepaper. Visualizer stays on. Orchestrator stays off unless the operator
+  deliberately sets XAI_API_KEY. Daily briefing is local markdown, not a
+  cloud journal.
+tags:
+  - community
+  - crew
+  - operator
+  - offline-first
+base:
+  distro: linuxmint
+  release: "22.3"
+  desktop: cinnamon
+  min_ram_mb: 4096
+  arch:
+    - x86_64
+identity:
+  os_name: HarborOS
+  codename: Crew Quarters
+  pretty_name: Harbor OS Crew Quarters
+  hostname_prefix: crew
+alignment:
+  principles:
+    - Sovereignty first
+    - Visual clarity over opacity
+    - Operator remains Emperor; Grok is Vizier
+    - Long-term orientation
+  operator_role: Emperor
+  agent_role: Vizier
+  offline_first: true
+  telemetry: none
+visualizer:
+  id: zen-garden
+  port: 8080
+  theme: raked-sand
+  metaphor: Daily watch as a quiet garden, not a panic board.
+orchestrator:
+  id: grok-zen-master
+  port: 4200
+  provider: xai-grok
+  model: grok-4
+  requires_api_key: true
+modules:
+  - id: crew
+    name: Crew Quarters
+    enabled: true
+    description: Standing orders and local daily briefing.
+  - id: archives
+    name: Archives and Memory
+    enabled: true
+    description: Keep watch notes retrievable offline.
+  - id: research
+    name: Research Wing
+    enabled: false
+    description: Available but not default-weighted.
+services:
+  - unit: harbor-visualizer.service
+    enabled: true
+    wanted_by: graphical.target
+  - unit: harbor-zen-master.service
+    enabled: false
+    wanted_by: multi-user.target
+experimentals:
+  listed: true
+  upload_allowed: true
+  min_subscription: premium-plus
+  risk: unsigned
