@@ -1,12 +1,12 @@
 {
   "schema": "harbor-grok-app-manifest/v1",
-  "updated": "2026-09-18",
+  "updated": "2026-09-19",
   "product": "Harbor OS",
   "codename": "FreshOS Zen Garden",
   "affiliation": "independent",
   "official_xai_product": false,
   "cannot_mutate_grok_app": true,
-  "overlay_version": "1.6.0",
+  "overlay_version": "1.7.0",
   "surfaces": {
     "source": "https://github.com/djlacavera21/harbor-os",
     "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
