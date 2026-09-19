@@ -21,6 +21,7 @@ Usage: harborctl.sh <command>
   new-flavor      Scaffold flavors/<slug>/harbor.flavor.yaml
   ingest          Local Premium+ upload rehearsal on :8090
   selftest        Validate every flavor and refuse ISO leakage
+  status          Print overlay version, flavor, wings, and ports
   help            This text
 EOF
 }
@@ -71,6 +72,35 @@ EOF
     ;;
   selftest)
     exec bash "$ROOT/scripts/selftest.sh"
+    ;;
+  status)
+    python3 - <<PY
+import os
+from pathlib import Path
+root = Path("$ROOT")
+version = (root / "VERSION").read_text().strip()
+flavor = os.environ.get("HARBOR_FLAVOR_ID", "zen-garden")
+for candidate in (
+    Path.home() / ".local/share/harbor-os/identity.env",
+    Path("/etc/harbor-os/identity.env"),
+    Path.home() / ".config/harbor-os/identity.env",
+):
+    if candidate.exists():
+        for line in candidate.read_text().splitlines():
+            if line.startswith("HARBOR_FLAVOR_ID="):
+                flavor = line.split("=", 1)[1].strip()
+wings = sorted(p.name for p in (root / "modules").iterdir() if p.is_dir() and not p.name.startswith("."))
+print(f"Harbor OS {version}")
+print(f"flavor     {flavor}")
+print(f"garden     http://127.0.0.1:8080")
+print(f"vizier     http://127.0.0.1:4200/docs  (needs XAI_API_KEY)")
+print(f"station    http://127.0.0.1:8088/docs/")
+print(f"ingest     http://127.0.0.1:8090/upload")
+print(f"api_key    {'set' if os.environ.get('XAI_API_KEY') else 'absent'}")
+print(f"wings      {', '.join(wings)}")
+print("download   https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip")
+print("note       Independent overlay. Cannot add an Experimentals tab to the Grok App.")
+PY
     ;;
   new-flavor)
     exec bash "$ROOT/scripts/new-flavor.sh" "${1:-}" "${2:-}"
