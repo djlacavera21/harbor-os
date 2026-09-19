@@ -42,7 +42,7 @@ The upload *gate* is a product decision for xAI. The upload *format* is specifie
 | --- | --- |
 | Flavor spec `harbor-flavor/v1` | Done |
 | Official flavor: FreshOS Zen Garden | Done |
-| Community flavors: War Room, Research, Airgap TUI, Publishing, Finance, Design, Crew Quarters | Done (unsigned) |
+| Community flavors: War Room, Research, Airgap TUI, Publishing, Finance, Design, Crew Quarters, Archives | Done (unsigned) |
 | Community template + validator | Done |
 | Zen Garden visualizer (`:8080`) | Runnable |
 | Grok Zen Master orchestrator (`:4200`) | Runnable, optional API key |
@@ -70,6 +70,7 @@ Open [http://127.0.0.1:8080](http://127.0.0.1:8080) for the garden.
 ./scripts/harborctl.sh experimentals
 # Experimentals → http://127.0.0.1:8088/experimentals/
 ./scripts/harborctl.sh catalog
+./scripts/harborctl.sh status
 ```
 
 Sand = load. Stones = memory. Lanterns = network. The orb is the aligned agent.
@@ -92,6 +93,7 @@ HARBOR_FLAVOR_ID=publishing-harbor ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=finance-harbor ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=design-harbor ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=crew-quarters ./scripts/harborctl.sh apply
+HARBOR_FLAVOR_ID=archives-harbor ./scripts/harborctl.sh apply
 ```
 
 Author a new community flavor (the same document the proposed Grok App Premium+ submenu would accept):
@@ -114,6 +116,7 @@ flavors/publishing-harbor/harbor.flavor.yaml  community
 flavors/finance-harbor/harbor.flavor.yaml     community
 flavors/design-harbor/harbor.flavor.yaml      community
 flavors/crew-quarters/harbor.flavor.yaml      community
+flavors/archives-harbor/harbor.flavor.yaml     community
 flavors/template/harbor.flavor.yaml           start here
 ```
 
