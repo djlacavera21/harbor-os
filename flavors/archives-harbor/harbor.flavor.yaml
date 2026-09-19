@@ -1,0 +1,81 @@
+schema: harbor-flavor/v1
+id: archives-harbor
+name: Archives Harbor
+version: 0.1.0
+license: MIT
+author:
+  name: FreshOS Development Collective
+  url: https://github.com/djlacavera21/harbor-os
+summary: Memory-first flavor. Local remember notes, rebuilt index, and offline long-horizon retrieval.
+description: |
+  Community flavor for the Archives and Memory wing. Visualizer stays on so
+  the garden remains the oversight surface. Orchestrator stays off unless the
+  operator sets XAI_API_KEY. Remember notes are local markdown, never a
+  cloud journal. No ISO payload. Not an official xAI product.
+tags:
+  - community
+  - archives
+  - memory
+  - offline-first
+base:
+  distro: linuxmint
+  release: "22.3"
+  desktop: cinnamon
+  min_ram_mb: 4096
+  arch:
+    - x86_64
+identity:
+  os_name: HarborOS
+  codename: Archives
+  pretty_name: Harbor OS Archives
+  hostname_prefix: archive
+alignment:
+  principles:
+    - Sovereignty first
+    - Visual clarity over opacity
+    - Long-term orientation
+    - Operator remains Emperor; Grok is Vizier
+  operator_role: Emperor
+  agent_role: Vizier
+  offline_first: true
+  telemetry: none
+visualizer:
+  id: zen-garden
+  port: 8080
+  theme: raked-sand
+  metaphor: Memory as stones that stay in the garden after the tide of load recedes.
+orchestrator:
+  id: grok-zen-master
+  port: 4200
+  provider: xai-grok
+  model: grok-4
+  requires_api_key: true
+modules:
+  - id: archives
+    name: Archives and Memory
+    enabled: true
+    description: Remember notes and a rebuilt local index.
+  - id: research
+    name: Research Wing
+    enabled: true
+    description: Sources that deserve to survive the current session.
+  - id: crew
+    name: Crew Quarters
+    enabled: true
+    description: Operator watch notes that feed the archive.
+  - id: publishing
+    name: Publishing Wing
+    enabled: false
+    description: Available but not default-weighted.
+services:
+  - unit: harbor-visualizer.service
+    enabled: true
+    wanted_by: graphical.target
+  - unit: harbor-zen-master.service
+    enabled: false
+    wanted_by: multi-user.target
+experimentals:
+  listed: true
+  upload_allowed: true
+  min_subscription: premium-plus
+  risk: unsigned
