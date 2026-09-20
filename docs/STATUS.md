@@ -1,4 +1,4 @@
-# Harbor OS status — 19 September 2026 (overlay 1.7.0)
+# Harbor OS status — 20 September 2026 (overlay 1.8.0)
 
 Harbor OS is a **declared-base overlay + flavor protocol**, not a from-scratch kernel
 and not an official xAI product.
@@ -15,6 +15,14 @@ and not an official xAI product.
 | Live station preview | https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html | Public, no Pages required |
 | Pages station | https://djlacavera21.github.io/harbor-os/ | **Owner must enable Pages** |
 | Official Grok App tab | — | **Not shippable from this repo** |
+
+## 20 September 2026
+
+- Overlay **1.8.0**.
+- New community flavor: Sovereign Gateway Harbor.
+- Experimentals Gateway wing (`modules/gateway/card.py`) and `harborctl card`.
+- Official Zen Garden flavor identity 1.8.
+- Official Grok App Experimentals tab remains xAI-owned. Independent download is the overlay zip.
 
 ## 19 September 2026
 

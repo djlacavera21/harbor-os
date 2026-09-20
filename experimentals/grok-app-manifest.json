@@ -1,12 +1,12 @@
 {
   "schema": "harbor-grok-app-manifest/v1",
-  "updated": "2026-09-19",
+  "updated": "2026-09-20",
   "product": "Harbor OS",
   "codename": "FreshOS Zen Garden",
   "affiliation": "independent",
   "official_xai_product": false,
   "cannot_mutate_grok_app": true,
-  "overlay_version": "1.7.0",
+  "overlay_version": "1.8.0",
   "surfaces": {
     "source": "https://github.com/djlacavera21/harbor-os",
     "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
@@ -38,6 +38,7 @@
     "zen_master": "http://127.0.0.1:4200/docs",
     "experimentals_local": "http://127.0.0.1:8088/docs/",
     "agent_station": "./scripts/harborctl.sh station",
+    "download_card": "./scripts/harborctl.sh card",
     "base": "linuxmint 22.3 Cinnamon overlay — not a kernel fork",
     "ingest_rehearsal": "http://127.0.0.1:8090/upload"
   }
