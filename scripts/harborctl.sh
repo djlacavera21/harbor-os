@@ -22,6 +22,7 @@ Usage: harborctl.sh <command>
   ingest          Local Premium+ upload rehearsal on :8090
   selftest        Validate every flavor and refuse ISO leakage
   status          Print overlay version, flavor, wings, and ports
+  card            Print the independent Experimentals download card
   help            This text
 EOF
 }
@@ -102,6 +103,9 @@ print("download   https://github.com/djlacavera21/harbor-os/archive/refs/heads/m
 print("note       Independent overlay. Cannot add an Experimentals tab to the Grok App.")
 PY
     ;;
+  card)
+    exec python3 "$ROOT/modules/gateway/card.py"
+    ;;
   new-flavor)
     exec bash "$ROOT/scripts/new-flavor.sh" "${1:-}" "${2:-}"
     ;;
@@ -122,7 +126,7 @@ print("preview:", c.get("independent_station_preview"))
 PY
     ;;
   help|-h|--help)
-    usage
+    usage()
     ;;
   *)
     echo "unknown command: $cmd" >&2
