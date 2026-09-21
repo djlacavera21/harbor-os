@@ -17,10 +17,10 @@ EOF
 # Identity overlay — do not overwrite upstream /etc/os-release wholesale.
 cat >/etc/harbor-os/os-release <<'EOF'
 NAME="FreshOS"
-VERSION="1.1 Zen Garden"
+VERSION="1.9 Zen Garden"
 ID=freshos
 ID_LIKE="linuxmint ubuntu debian"
-PRETTY_NAME="FreshOS 1.1 Zen Garden (Harbor overlay)"
+PRETTY_NAME="FreshOS 1.9 Zen Garden (Harbor overlay)"
 HOME_URL="https://github.com/djlacavera21/harbor-os"
 SUPPORT_URL="https://github.com/djlacavera21/harbor-os/issues"
 VARIANT="Harbor OS Experimentals"

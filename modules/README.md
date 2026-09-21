@@ -13,6 +13,7 @@ They are workspaces, not daemons. The visualizer watches the machine; the operat
 | `archives/` | Long-term memory | `INDEX.md`, `index.py`, `remember.py` |
 | `crew/` | Standing orders for the operator | `STANDING-ORDERS.md` |
 | `gateway/` | Experimentals download card and Grok App contract | `CONTRACT.md`, `card.py` |
+| `oskit/` | Personal Cubic bake checklist (no ISO hosting) | `BAKE.md`, `bake.py` |
 
 A community flavor may enable or disable wings in `harbor.flavor.yaml`.
 Do not put API keys or secrets in these files.
@@ -25,4 +26,5 @@ python3 modules/archives/index.py
 python3 modules/archives/remember.py "stone that should remain"
 python3 modules/publishing/stage.py "draft title"
 python3 modules/gateway/card.py
+python3 modules/oskit/bake.py
 ```

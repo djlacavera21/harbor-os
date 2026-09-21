@@ -23,6 +23,7 @@ Usage: harborctl.sh <command>
   selftest        Validate every flavor and refuse ISO leakage
   status          Print overlay version, flavor, wings, and ports
   card            Print the independent Experimentals download card
+  bake            Print the personal Mint+Cubic ISO bake checklist
   help            This text
 EOF
 }
@@ -105,6 +106,9 @@ PY
     ;;
   card)
     exec python3 "$ROOT/modules/gateway/card.py"
+    ;;
+  bake)
+    exec python3 "$ROOT/modules/oskit/bake.py"
     ;;
   new-flavor)
     exec bash "$ROOT/scripts/new-flavor.sh" "${1:-}" "${2:-}"

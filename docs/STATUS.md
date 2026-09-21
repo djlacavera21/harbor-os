@@ -1,4 +1,4 @@
-# Harbor OS status — 20 September 2026 (overlay 1.8.0)
+# Harbor OS status — 21 September 2026 (overlay 1.9.0)
 
 Harbor OS is a **declared-base overlay + flavor protocol**, not a from-scratch kernel
 and not an official xAI product.
@@ -16,35 +16,11 @@ and not an official xAI product.
 | Pages station | https://djlacavera21.github.io/harbor-os/ | **Owner must enable Pages** |
 | Official Grok App tab | — | **Not shippable from this repo** |
 
-## 20 September 2026
+## 21 September 2026
 
-- Overlay **1.8.0**.
-- New community flavor: Sovereign Gateway Harbor.
-- Experimentals Gateway wing (`modules/gateway/card.py`) and `harborctl card`.
-- Official Zen Garden flavor identity 1.8.
+- Overlay **1.9.0**.
+- New community flavor: Empire Stack Harbor.
+- OS Kit wing (`modules/oskit/bake.py`) and `harborctl bake`.
+- Official Zen Garden flavor identity 1.9.
+- Experimentals station no longer advertises the stale 1.6 overlay label.
 - Official Grok App Experimentals tab remains xAI-owned. Independent download is the overlay zip.
-
-## 19 September 2026
-
-- Overlay **1.7.0**.
-- New community flavor: Archives Harbor.
-- Archives remember tool and publishing draft stager.
-- `harborctl status` for a local station readout.
-- Visualizer APIs now publish the live overlay version from `VERSION`.
-- Official Grok App Experimentals tab remains xAI-owned. Independent download is the overlay zip.
-
-## 18 September 2026
-
-- Overlay **1.6.0**.
-- New community flavor: Crew Quarters Harbor.
-- Crew briefing tool: `python3 modules/crew/briefing.py "today's watch"`.
-- Official Zen Garden flavor identity 1.6.
-- Official Grok App Experimentals tab remains xAI-owned. Independent download is the overlay zip.
-
-## 17 September 2026
-
-- Overlay **1.5.0**.
-- New community flavor: Design Harbor.
-- Local Premium+ ingest rehearsal: `./scripts/harborctl.sh ingest` on `:8090`.
-- `harborctl selftest` validates every flavor and refuses ISO leakage.
-- Design Wing `compose.py` and Archives `index.py` are runnable offline.
