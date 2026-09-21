@@ -1,0 +1,106 @@
+schema: harbor-flavor/v1
+id: empire-stack
+name: Empire Stack Harbor
+version: 0.1.0
+license: MIT
+author:
+  name: FreshOS Development Collective
+  url: https://github.com/djlacavera21/harbor-os
+summary: Full-wing operator stack — every Harbor module on, Cubic bake notes, Experimentals download card.
+description: |
+  Community flavor for operators who want the complete Harbor overlay, not a
+  single-wing slice. Enables Research, Design, Publishing, War Room, Finance,
+  Archives, Crew, Gateway, and the OS Kit bake checklist.
+
+  This is still an overlay on official Linux Mint 22.3 Cinnamon. It is not a
+  kernel fork and not an official xAI product. A personal bootable ISO is
+  baked by the operator with Cubic against an official Mint image.
+tags:
+  - community
+  - full-stack
+  - cubic
+  - experimentals
+  - sovereign
+base:
+  distro: linuxmint
+  release: "22.3"
+  desktop: cinnamon
+  min_ram_mb: 4096
+  arch:
+    - x86_64
+identity:
+  os_name: HarborOS
+  codename: Empire Stack
+  pretty_name: Harbor OS Empire Stack
+  hostname_prefix: harbor
+alignment:
+  principles:
+    - Sovereignty first
+    - Visual clarity over opacity
+    - Value coherence
+    - Graduated agency
+    - Long-term orientation
+  operator_role: Emperor
+  agent_role: Vizier
+  offline_first: true
+  telemetry: none
+visualizer:
+  id: zen-garden
+  port: 8080
+  theme: raked-sand
+  metaphor: The whole garden is the empire — every wing visible at once.
+orchestrator:
+  id: grok-zen-master
+  port: 4200
+  provider: xai-grok
+  model: grok-4
+  requires_api_key: true
+modules:
+  - id: research
+    name: Research Wing
+    enabled: true
+    description: Source inbox, verification, synthesis drafts.
+  - id: design
+    name: Design Wing
+    enabled: true
+    description: Emblems, posters, local visual production.
+  - id: publishing
+    name: Publishing Wing
+    enabled: true
+    description: Outbound drafts and local archive staging.
+  - id: war-room
+    name: Strategy Room
+    enabled: true
+    description: Scenario board and long-horizon notes.
+  - id: finance
+    name: Finance Wing
+    enabled: true
+    description: Local ledger and reserve notes.
+  - id: archives
+    name: Archives and Memory
+    enabled: true
+    description: Remember tool and rebuilt index.
+  - id: crew
+    name: Crew Quarters
+    enabled: true
+    description: Standing orders and daily briefing.
+  - id: gateway
+    name: Experimentals Gateway
+    enabled: true
+    description: Independent download card and proposed Grok App Experimentals IA.
+  - id: oskit
+    name: OS Kit
+    enabled: true
+    description: Cubic bake checklist for a personal bootable Mint overlay ISO.
+services:
+  - unit: harbor-visualizer.service
+    enabled: true
+    wanted_by: graphical.target
+  - unit: harbor-zen-master.service
+    enabled: false
+    wanted_by: multi-user.target
+experimentals:
+  listed: true
+  upload_allowed: true
+  min_subscription: premium-plus
+  risk: unsigned
