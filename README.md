@@ -42,7 +42,7 @@ The upload *gate* is a product decision for xAI. The upload *format* is specifie
 | --- | --- |
 | Flavor spec `harbor-flavor/v1` | Done |
 | Official flavor: FreshOS Zen Garden | Done |
-| Community flavors: Sovereign Gateway, War Room, Research, Airgap TUI, Publishing, Finance, Design, Crew Quarters, Archives | Done (unsigned) |
+| Community flavors: Empire Stack, Sovereign Gateway, War Room, Research, Airgap TUI, Publishing, Finance, Design, Crew Quarters, Archives | Done (unsigned) |
 | Community template + validator | Done |
 | Zen Garden visualizer (`:8080`) | Runnable |
 | Grok Zen Master orchestrator (`:4200`) | Runnable, optional API key |
@@ -71,6 +71,7 @@ Open [http://127.0.0.1:8080](http://127.0.0.1:8080) for the garden.
 # Experimentals → http://127.0.0.1:8088/experimentals/
 ./scripts/harborctl.sh catalog
 ./scripts/harborctl.sh card
+./scripts/harborctl.sh bake
 ./scripts/harborctl.sh status
 ```
 
@@ -96,6 +97,7 @@ HARBOR_FLAVOR_ID=design-harbor ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=crew-quarters ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=archives-harbor ./scripts/harborctl.sh apply
 HARBOR_FLAVOR_ID=sovereign-gateway ./scripts/harborctl.sh apply
+HARBOR_FLAVOR_ID=empire-stack ./scripts/harborctl.sh apply
 ```
 
 Author a new community flavor (the same document the proposed Grok App Premium+ submenu would accept):
@@ -120,6 +122,7 @@ flavors/design-harbor/harbor.flavor.yaml      community
 flavors/crew-quarters/harbor.flavor.yaml      community
 flavors/archives-harbor/harbor.flavor.yaml     community
 flavors/sovereign-gateway/harbor.flavor.yaml  community
+flavors/empire-stack/harbor.flavor.yaml       community
 flavors/template/harbor.flavor.yaml           start here
 ```
 
@@ -133,7 +136,7 @@ Schema: [`spec/harbor-flavor.schema.json`](spec/harbor-flavor.schema.json).
 
 Harbor does not fork the kernel. It customizes a declared Linux Mint 22.3 Cinnamon base and keeps the operator able to run offline after setup. The orchestrator stays off unless `XAI_API_KEY` is present.
 
-Visualizer `:8080`. Optional Zen Master `:4200`. Modules: Research, Design, Publish, Strategy, Finance, Archives, Crew, Gateway.
+Visualizer `:8080`. Optional Zen Master `:4200`. Modules: Research, Design, Publish, Strategy, Finance, Archives, Crew, Gateway, OS Kit.
 
 ## Bootable ISO
 
