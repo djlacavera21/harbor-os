@@ -12,16 +12,26 @@
   "independent_station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
   "client_ia": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/client-ia.json",
   "note": "This catalog is the community Experimentals index. It is not an official xAI or Grok App surface. Zip + htmlpreview station work without Pages. A future Grok App tab could consume this same schema.",
-  "official": [{
-    "id": "zen-garden",
-    "name": "FreshOS Zen Garden Edition",
-    "version": "1.10.0",
-    "channel": "official",
-    "download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
-    "source": "https://github.com/djlacavera21/harbor-os",
-    "flavor": "flavors/zen-garden/harbor.flavor.yaml",
-    "risk": "low",
-    "min_subscription": "none",
-    "summary": "Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, TUI agent station, optional Grok Zen Master, Experimentals download card, OS Kit bake checklist, Archives remember tool, publishing stager, and local Premium+ ingest rehearsal. Overlay 1.10.0. Nested Experimentals rail and Premium+ submenu rehearsal."
-  }]
+  "official": [{"id":"zen-garden","name":"FreshOS Zen Garden Edition","version":"1.10.0","channel":"official","download":"https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip","source":"https://github.com/djlacavera21/harbor-os","flavor":"flavors/zen-garden/harbor.flavor.yaml","risk":"low","min_subscription":"none","summary":"Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, TUI agent station, optional Grok Zen Master, Experimentals download card, OS Kit bake checklist, Archives remember tool, publishing stager, and local Premium+ ingest rehearsal. Overlay 1.10.0. Nested Experimentals rail and Premium+ submenu rehearsal."}],
+  "community": [
+    {"id":"empire-stack","name":"Empire Stack Harbor","version":"0.1.0","channel":"community","download":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/empire-stack","source":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/empire-stack","flavor":"flavors/empire-stack/harbor.flavor.yaml","risk":"unsigned","min_subscription":"none","summary":"Full-wing operator stack. Every Harbor module on, plus the Cubic bake checklist for a personal Mint overlay ISO."},
+    {"id":"sovereign-gateway","name":"Sovereign Gateway Harbor","version":"0.1.0","channel":"community","download":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/sovereign-gateway","source":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/sovereign-gateway","flavor":"flavors/sovereign-gateway/harbor.flavor.yaml","risk":"unsigned","min_subscription":"none","summary":"Experimentals-first flavor. Prints the independent download card and rehearses the proposed Grok App tab plus Premium+ upload submenu."},
+    {"id":"war-room","name":"War Room Harbor","version":"0.1.0","channel":"community","download":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/war-room","source":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/war-room","flavor":"flavors/war-room/harbor.flavor.yaml","risk":"unsigned","min_subscription":"none","summary":"Strategy-first module weighting: scenario board, alliance map, long-horizon notes."},
+    {"id":"research-harbor","name":"Research Harbor","version":"0.1.0","channel":"community","download":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/research-harbor","source":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/research-harbor","flavor":"flavors/research-harbor/harbor.flavor.yaml","risk":"unsigned","min_subscription":"none","summary":"Research wing default: source inbox, verification notes, offline synthesis drafts."},
+    {"id":"airgap-tui","name":"Airgap TUI Station","version":"0.1.0","channel":"community","download":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/airgap-tui","source":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/airgap-tui","flavor":"flavors/airgap-tui/harbor.flavor.yaml","risk":"unsigned","min_subscription":"none","summary":"Minimal TUI-oriented flavor. Orchestrator off. Visualizer optional. Air-gap friendly."},
+    {"id":"publishing-harbor","name":"Publishing Harbor","version":"0.1.0","channel":"community","download":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/publishing-harbor","source":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/publishing-harbor","flavor":"flavors/publishing-harbor/harbor.flavor.yaml","risk":"unsigned","min_subscription":"none","summary":"Outbound drafts, local archive, design assets. Upload gate proposed as X Premium+."},
+    {"id":"finance-harbor","name":"Finance Harbor","version":"0.1.0","channel":"community","download":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/finance-harbor","source":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/finance-harbor","flavor":"flavors/finance-harbor/harbor.flavor.yaml","risk":"unsigned","min_subscription":"none","summary":"Local ledger, reserve notes, and sovereignty-focused trade sketches. Offline by default."},
+    {"id":"design-harbor","name":"Design Harbor","version":"0.1.0","channel":"community","download":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/design-harbor","source":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/design-harbor","flavor":"flavors/design-harbor/harbor.flavor.yaml","risk":"unsigned","min_subscription":"none","summary":"Visual production flavor. Local emblem/poster briefs via modules/design/compose.py."},
+    {"id":"crew-quarters","name":"Crew Quarters Harbor","version":"0.1.0","channel":"community","download":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/crew-quarters","source":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/crew-quarters","flavor":"flavors/crew-quarters/harbor.flavor.yaml","risk":"unsigned","min_subscription":"none","summary":"Operator environment flavor. Standing orders and local daily briefing via modules/crew/briefing.py."},
+    {"id":"archives-harbor","name":"Archives Harbor","version":"0.1.0","channel":"community","download":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/archives-harbor","source":"https://github.com/djlacavera21/harbor-os/tree/main/flavors/archives-harbor","flavor":"flavors/archives-harbor/harbor.flavor.yaml","risk":"unsigned","min_subscription":"none","summary":"Memory-first flavor. Local remember notes and rebuilt archive index via modules/archives/remember.py."}
+  ],
+  "community_upload": {
+    "enabled_locally": true,
+    "proposed_grok_app_gate": "X Premium+",
+    "accepts": [".yaml", ".yml", ".zip"],
+    "max_bytes": 52428800,
+    "submit_issue": "https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml",
+    "rules": ["Must validate against harbor-flavor/v1","Must declare base distro honestly","Must not ship credentials or telemetry endpoints","Must not claim official xAI status","Unsigned community flavors are risk=unsigned","No ISO or disk images inside a flavor pack"],
+    "ingest_rehearsal": "http://127.0.0.1:8090/upload"
+  }
 }
