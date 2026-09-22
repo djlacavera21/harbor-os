@@ -1,0 +1,62 @@
+{
+  "schema": "harbor-grok-app-client-ia/v1",
+  "updated": "2026-09-22",
+  "overlay_version": "1.10.0",
+  "affiliation": "independent",
+  "official_xai_product": false,
+  "cannot_mutate_grok_app": true,
+  "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
+  "catalog": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json",
+  "manifest": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/grok-app-manifest.json",
+  "station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
+  "app": {
+    "id": "grok-app",
+    "tab": {
+      "id": "experimentals",
+      "label": "Experimentals",
+      "owner": "xAI",
+      "status": "proposed",
+      "children": [
+        {
+          "id": "harbor-os",
+          "label": "Harbor OS",
+          "kind": "pane",
+          "min_subscription": "none",
+          "source": "catalog.official",
+          "primary_action": {
+            "id": "download_overlay_zip",
+            "label": "Download",
+            "url_from": "catalog.independent_download"
+          }
+        },
+        {
+          "id": "flavors",
+          "label": "Flavors",
+          "kind": "pane",
+          "min_subscription": "none",
+          "source": "catalog.official + catalog.community"
+        },
+        {
+          "id": "upload-flavor",
+          "label": "Upload flavor",
+          "kind": "submenu",
+          "min_subscription": "premium-plus",
+          "gate_owner": "xAI",
+          "accepts": [".yaml", ".yml", ".zip"],
+          "max_bytes": 52428800,
+          "validator": "experimentals/validate_flavor.py",
+          "on_success": "queue catalog.community[] review",
+          "local_rehearsal": "http://127.0.0.1:8088/docs/#upload"
+        }
+      ]
+    }
+  },
+  "client_rules": [
+    "Label the product independent. Do not render official xAI OS branding.",
+    "Download action points at the overlay zip, never at a bootleg Mint ISO.",
+    "Hide Upload flavor unless the bound X account is Premium+.",
+    "Reject uploads that fail harbor-flavor/v1, contain secrets, contain .iso/.img, or claim official xAI / Grok OS status.",
+    "Community listings stay risk: unsigned until a human review flips them.",
+    "Anyone may download flavors (min_subscription: none). Only Premium+ may upload."
+  ]
+}
