@@ -1,0 +1,63 @@
+{
+  "schema": "harbor-grok-app-handoff/v1",
+  "updated": "2026-09-23",
+  "overlay_version": "1.11.0",
+  "product": "Harbor OS",
+  "codename": "FreshOS Zen Garden",
+  "affiliation": "independent",
+  "official_xai_product": false,
+  "cannot_mutate_grok_app": true,
+  "ask": "If xAI ships an Experimentals tab, consume these contracts. Do not invent a new artifact type.",
+  "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
+  "station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
+  "pages_station": "https://djlacavera21.github.io/harbor-os/",
+  "catalog": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json",
+  "manifest": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/grok-app-manifest.json",
+  "client_ia": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/client-ia.json",
+  "flavor_schema": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/spec/harbor-flavor.schema.json",
+  "validator": "experimentals/validate_flavor.py",
+  "submit_flavor": "https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml",
+  "brief": "https://github.com/djlacavera21/harbor-os/blob/main/docs/XAI_EXPERIMENTALS_BRIEF.md",
+  "contract": "https://github.com/djlacavera21/harbor-os/blob/main/docs/GROK_APP_CONTRACT.md",
+  "app": {
+    "tab": {
+      "id": "experimentals",
+      "label": "Experimentals",
+      "owner": "xAI",
+      "status": "proposed",
+      "children": [
+        {
+          "id": "harbor-os",
+          "label": "Harbor OS",
+          "kind": "pane",
+          "min_subscription": "none",
+          "primary_action": "download_overlay_zip"
+        },
+        {
+          "id": "flavors",
+          "label": "Flavors",
+          "kind": "pane",
+          "min_subscription": "none",
+          "source": "catalog.official + catalog.community"
+        },
+        {
+          "id": "upload-flavor",
+          "label": "Upload flavor",
+          "kind": "submenu",
+          "min_subscription": "premium-plus",
+          "accepts": [".yaml", ".yml", ".zip"],
+          "max_bytes": 52428800,
+          "on_success": "queue catalog.community[] review"
+        }
+      ]
+    }
+  },
+  "client_rules": [
+    "Label the product independent. Do not render official xAI OS branding.",
+    "Download action points at the overlay zip, never at a bootleg Mint ISO.",
+    "Hide Upload flavor unless the bound X account is Premium+.",
+    "Reject uploads that fail harbor-flavor/v1, contain secrets, contain .iso/.img, or claim official xAI / Grok OS status.",
+    "Community listings stay risk: unsigned until a human review flips them.",
+    "Anyone may download flavors. Only Premium+ may upload."
+  ]
+}
