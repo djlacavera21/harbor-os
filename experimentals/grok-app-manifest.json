@@ -1,12 +1,12 @@
 {
   "schema": "harbor-grok-app-manifest/v1",
-  "updated": "2026-09-21",
+  "updated": "2026-09-24",
   "product": "Harbor OS",
   "codename": "FreshOS Zen Garden",
   "affiliation": "independent",
   "official_xai_product": false,
   "cannot_mutate_grok_app": true,
-  "overlay_version": "1.9.0",
+  "overlay_version": "1.11.0",
   "surfaces": {
     "source": "https://github.com/djlacavera21/harbor-os",
     "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
@@ -20,30 +20,9 @@
   "proposed_grok_app_ia": {
     "tab": "Experimentals",
     "items": [
-      {
-        "id": "harbor-os",
-        "label": "Harbor OS",
-        "source": "catalog.official",
-        "min_subscription": "none",
-        "primary_action": "download_overlay_zip"
-      },
-      {
-        "id": "flavors",
-        "label": "Flavors",
-        "source": "catalog.official + catalog.community",
-        "min_subscription": "none",
-        "primary_action": "browse_and_download_flavor_yaml"
-      },
-      {
-        "id": "upload-flavor",
-        "label": "Upload flavor",
-        "submenu": true,
-        "min_subscription": "premium-plus",
-        "accepts": [".yaml", ".yml", ".zip"],
-        "max_bytes": 52428800,
-        "validator": "experimentals/validate_flavor.py",
-        "on_success": "queue catalog.community[] review"
-      }
+      {"id": "harbor-os", "label": "Harbor OS", "source": "catalog.official", "min_subscription": "none", "primary_action": "download_overlay_zip"},
+      {"id": "flavors", "label": "Flavors", "source": "catalog.official + catalog.community", "min_subscription": "none", "primary_action": "browse_and_download_flavor_yaml"},
+      {"id": "upload-flavor", "label": "Upload flavor", "submenu": true, "min_subscription": "premium-plus", "accepts": [".yaml", ".yml", ".zip"], "max_bytes": 52428800, "validator": "experimentals/validate_flavor.py", "on_success": "queue catalog.community[] review"}
     ]
   },
   "upload_policy": [

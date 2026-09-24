@@ -5,7 +5,7 @@ Harbor OS is an overlay, not a relicensed Linux Mint ISO and not an official xAI
 ## Live links (no Grok App required)
 
 | Surface | URL | Auth |
-| --- | --- |
+| --- | --- | --- |
 | Source | https://github.com/djlacavera21/harbor-os | none |
 | Rolling zip | https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip | none |
 | Live station preview | https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html | none |
@@ -25,3 +25,19 @@ Grok App
 ```
 
 Only xAI can render that tab or check live Premium+ entitlements.
+
+## Overlay 1.11.0
+
+The Experimentals station at `docs/index.html` is a single HTML file.
+htmlpreview can render Harbor OS / Flavors / Upload flavor without Pages
+and without sibling assets.
+
+Local rehearsal:
+
+```
+./scripts/harborctl.sh experimentals
+# Harbor OS   → http://127.0.0.1:8088/docs/#official
+# Flavors     → http://127.0.0.1:8088/docs/#flavors
+# Upload      → http://127.0.0.1:8088/docs/#upload
+./scripts/harborctl.sh app-contract
+```

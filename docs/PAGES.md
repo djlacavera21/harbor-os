@@ -4,7 +4,7 @@ Until Pages is enabled, use the live preview that does **not** need repository s
 
 https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html
 
-`docs/index.html` is self-contained (CSS and station runtime inlined) so that preview renders the Harbor OS / Flavors / Upload Premium+ IA.
+`docs/index.html` is self-contained as of overlay 1.11.0 (CSS and station runtime inlined) so htmlpreview renders the Harbor OS / Flavors / Upload Premium+ IA.
 
 Target URL after enable:
 
@@ -19,8 +19,6 @@ That URL is still **404** until the repository owner flips Pages on. Grok / this
 3. Branch: `main`
 4. Folder: `/docs`
 5. Save
-
-`docs/index.html` is now self-contained (full `station.js`, Grok-app rehearsal chrome, Harbor OS / Flavors / Upload Premium+).
 
 ## Actions path
 
