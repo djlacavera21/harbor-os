@@ -1,7 +1,7 @@
 schema: harbor-flavor/v1
 id: zen-garden
 name: FreshOS Zen Garden Edition
-version: 1.9.0
+version: 1.11.0
 license: MIT
 author:
   name: FreshOS Development Collective
@@ -9,7 +9,7 @@ author:
 summary: Sovereign Mint-based flavor with a living Zen Garden visualizer and optional Grok Zen Master orchestration.
 description: |
   First official Harbor OS flavor. Transforms a Linux Mint 22.3 Cinnamon
-  base into FreshOS 1.9 Zen Garden — local visualizer on :8080, optional
+  base into FreshOS 1.11 Zen Garden — local visualizer on :8080, optional
   Grok orchestrator on :4200, and module stubs for research, design,
   publishing, strategy, finance, archives, and operator workflow.
 tags:
@@ -28,7 +28,7 @@ base:
 identity:
   os_name: FreshOS
   codename: Zen Garden
-  pretty_name: FreshOS 1.9 Zen Garden
+  pretty_name: FreshOS 1.11 Zen Garden
   hostname_prefix: freshos
 alignment:
   principles:
@@ -81,23 +81,6 @@ modules:
     name: Crew Quarters
     enabled: true
     description: Operator environment and daily workflow.
-  - id: gateway
-    name: Experimentals Gateway
-    enabled: true
-    description: Independent download card and proposed Grok App Experimentals IA.
-  - id: oskit
-    name: OS Kit
-    enabled: true
-    description: Personal Cubic bake checklist. Never hosts a Mint ISO.
 services:
-  - unit: harbor-visualizer.service
-    enabled: true
-    wanted_by: graphical.target
-  - unit: harbor-zen-master.service
-    enabled: false
-    wanted_by: multi-user.target
-experimentals:
-  listed: true
-  upload_allowed: false
-  min_subscription: none
-  risk: low
+  visualizer: optional
+  orchestrator: optional
