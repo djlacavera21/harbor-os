@@ -26,11 +26,11 @@ Grok App
 
 Only xAI can render that tab or check live Premium+ entitlements.
 
-## Overlay 1.11.0
+## Overlay 1.12.0
 
-The Experimentals station at `docs/index.html` is a single HTML file.
-htmlpreview can render Harbor OS / Flavors / Upload flavor without Pages
-and without sibling assets.
+The Experimentals station at `docs/index.html` is a single HTML file with
+an embedded catalog. htmlpreview can render Harbor OS / Flavors / Upload
+flavor without Pages and without a live JSON fetch.
 
 Local rehearsal:
 
@@ -40,4 +40,10 @@ Local rehearsal:
 # Flavors     → http://127.0.0.1:8088/docs/#flavors
 # Upload      → http://127.0.0.1:8088/docs/#upload
 ./scripts/harborctl.sh app-contract
+./scripts/harborctl.sh pack-flavor zen-garden
+./scripts/harborctl.sh ingest
 ```
+
+Premium+ authors build the upload artifact with `pack-flavor`, then either
+POST it to the local ingest rehearsal (`X-Harbor-Premium-Plus: 1`) or open
+the submit-flavor issue. Live entitlement checks stay with xAI.
