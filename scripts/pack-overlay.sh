@@ -17,6 +17,12 @@ tar -C "$ROOT" --exclude='.git' --exclude='dist' --exclude='_site' \
     -x 'harbor-os/.git/*' 'harbor-os/dist/*' 'harbor-os/_site/*'
 )
 cp -f "$OUT_DIR/$NAME" "$OUT_DIR/harbor-os-overlay.zip"
+(
+  cd "$OUT_DIR"
+  sha256sum "$NAME" "harbor-os-overlay.zip" > SHA256SUMS.txt
+)
 echo "$OUT_DIR/$NAME"
 echo "$OUT_DIR/harbor-os-overlay.zip"
+echo "$OUT_DIR/SHA256SUMS.txt"
 ls -lh "$OUT_DIR/$NAME"
+cat "$OUT_DIR/SHA256SUMS.txt"
