@@ -1,0 +1,19 @@
+name: Overlay selftest
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate flavors, catalog, and refuse ISO leakage
+        run: |
+          chmod +x scripts/selftest.sh scripts/harborctl.sh experimentals/validate_flavor.py
+          ./scripts/selftest.sh
+          python3 -m json.tool experimentals/client-ia.json >/dev/null
+          test "$(tr -d '[:space:]' < VERSION)" = "1.13.0"
