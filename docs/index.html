@@ -35,7 +35,7 @@ footer{color:var(--muted);font-size:12px;margin-top:28px}
   <h1>Grok · <span>Experimentals</span></h1>
   <span class="pill">Independent station</span>
   <span class="pill dim">Not an xAI product</span>
-  <span class="pill dim">Overlay 1.11.0</span>
+  <span class="pill dim">Overlay 1.13.0</span>
   <nav class="tabs">
     <button class="on" data-t="official">Harbor OS</button>
     <button data-t="flavors">Flavors</button>
@@ -85,7 +85,7 @@ footer{color:var(--muted);font-size:12px;margin-top:28px}
     <div id="log">Gate closed.</div>
   </div>
 </section>
-<footer>harbor-experimentals-catalog/v1 · overlay 1.11.0 · MIT · independent</footer>
+<footer>harbor-experimentals-catalog/v1 · overlay 1.13.0 · MIT · independent</footer>
 </main>
 <script>
 const ZIP="https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip";
@@ -114,7 +114,7 @@ validate.onclick=function(){
 (async function(){
   let catalog=null;
   try{const r=await fetch("https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json");if(r.ok)catalog=await r.json();}catch(e){}
-  const official=(catalog&&catalog.official)||[{name:"FreshOS Zen Garden Edition",version:"1.11.0",risk:"low",summary:"Official overlay.",download:ZIP,source:SRC}];
+  const official=(catalog&&catalog.official)||[{name:"FreshOS Zen Garden Edition",version:"1.13.0",risk:"low",summary:"Official overlay.",download:ZIP,source:SRC}];
   const community=(catalog&&catalog.community)||[];
   const items=official.concat(community);
   const g=document.getElementById("grid");
