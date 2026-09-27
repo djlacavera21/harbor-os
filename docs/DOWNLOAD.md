@@ -26,10 +26,11 @@ Grok App
 
 Only xAI can render that tab or check live Premium+ entitlements.
 
-## Overlay 1.13.0
+## Overlay 1.14.0
 
 The Experimentals station at `docs/index.html` is a single HTML file with
-an embedded catalog, local search, copy-link, and Premium+ gate rehearsal. htmlpreview can render Harbor OS / Flavors / Upload
+Grok-app chrome, an embedded catalog, local search, copy-link, and Premium+
+gate rehearsal. htmlpreview can render Harbor OS / Flavors / Upload
 flavor without Pages and without a live JSON fetch.
 
 Local rehearsal:
