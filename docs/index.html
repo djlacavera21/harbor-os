@@ -3,121 +3,164 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Harbor OS · Experimentals</title>
+<title>Grok · Experimentals · Harbor OS</title>
 <style>
-:root{--bg:#0b0c0e;--panel:#14161a;--line:#2a2e36;--text:#ece7dc;--muted:#9a9486;--gold:#e8c36a;--gold-dim:#8a7030;--ok:#7dbe8a}
+:root{--bg:#07080a;--chrome:#101217;--panel:#16181d;--line:#2a2e36;--text:#ece7dc;--muted:#9a9486;--gold:#e8c36a;--gold-dim:#8a7030;--ok:#7dbe8a;--bad:#c96b6b}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,sans-serif}
-a{color:var(--gold)}header{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-h1{font-size:16px;margin:0}h1 span{color:var(--muted);font-weight:400}
-.pill{font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--gold-dim);color:var(--gold);padding:3px 8px;border-radius:999px}
+a{color:var(--gold)}
+.phone{max-width:980px;margin:18px auto 40px;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:var(--chrome);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.appbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:10px;align-items:center}
+.orb{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6d4,#e8c36a 45%,#6a4e12)}
+h1{font-size:15px;margin:0;letter-spacing:.02em}h1 span{color:var(--muted);font-weight:500}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--gold-dim);color:var(--gold);padding:3px 8px;border-radius:999px}
 .pill.dim{border-color:var(--line);color:var(--muted)}
-main{max-width:980px;margin:0 auto;padding:28px 22px 80px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px}
+nav{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);overflow:auto}
+nav button{background:transparent;color:var(--muted);border:1px solid transparent;padding:8px 12px;border-radius:999px;cursor:pointer;font:inherit;white-space:nowrap}
+nav button.on{color:var(--text);border-color:var(--line);background:#1b1e24}
+main{padding:20px 18px 36px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
 .lead{color:var(--muted)}
-.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.btn{display:inline-flex;background:var(--gold);color:#1a1406;border-radius:10px;padding:9px 14px;font-weight:600;text-decoration:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:#1a1406;border:0;border-radius:10px;padding:9px 14px;font-weight:600;text-decoration:none;cursor:pointer;font:inherit}
 .btn.ghost{background:#1b1e24;color:var(--text);border:1px solid var(--line)}
-.tabs button{background:transparent;color:var(--muted);border:1px solid transparent;padding:7px 12px;border-radius:999px;cursor:pointer;font:inherit}
-.tabs button.on{color:var(--text);border-color:var(--line);background:#14161a}
 section{display:none}section.on{display:block}
-.ia{font:12px/1.45 ui-monospace,monospace;background:#0e1014;border-radius:10px;padding:12px;color:var(--muted);white-space:pre}
-.gate{margin:12px 0}textarea,input[type=file]{width:100%;background:#0e1014;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px}
-textarea{min-height:140px}
-#log{white-space:pre-wrap;font:12px/1.5 ui-monospace,monospace;color:var(--muted);background:#0e1014;border-radius:10px;padding:12px;margin-top:12px}
-.ok{color:var(--ok)}.bad{color:#c96b6b}
+.ia{font:12px/1.45 ui-monospace,monospace;background:#0e1014;border-radius:10px;padding:12px;color:var(--muted);white-space:pre;overflow:auto}
+.search{width:100%;background:#0e1014;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px;margin:8px 0 14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
 .flavor{border:1px solid var(--line);border-radius:12px;padding:14px;background:#1b1e24}
-footer{color:var(--muted);font-size:12px;margin-top:28px}
+.flavor h3{margin:6px 0 8px;font-size:16px}
+.gate{margin:12px 0}
+textarea,input[type=file]{width:100%;background:#0e1014;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px;margin-top:8px}
+textarea{min-height:150px}
+#log{white-space:pre-wrap;font:12px/1.5 ui-monospace,monospace;color:var(--muted);background:#0e1014;border-radius:10px;padding:12px;margin-top:12px}
+.ok{color:var(--ok)}.bad{color:var(--bad)}
+footer{color:var(--muted);font-size:12px;padding:0 18px 22px}
+.note{font-size:12px;color:var(--muted);margin-top:10px}
 </style>
 </head>
 <body>
-<header>
-  <h1>Grok · <span>Experimentals</span></h1>
-  <span class="pill">Independent station</span>
-  <span class="pill dim">Not an xAI product</span>
-  <span class="pill dim">Overlay 1.13.0</span>
-  <nav class="tabs">
+<div class="phone">
+  <header class="appbar">
+    <div class="brand">
+      <div class="orb" aria-hidden="true"></div>
+      <h1>Grok · <span>Experimentals</span></h1>
+    </div>
+    <div class="pills">
+      <span class="pill">Independent station</span>
+      <span class="pill dim">Not an xAI product</span>
+      <span class="pill dim">Overlay 1.14.0</span>
+    </div>
+  </header>
+  <nav>
     <button class="on" data-t="official">Harbor OS</button>
     <button data-t="flavors">Flavors</button>
     <button data-t="upload">Upload flavor · Premium+</button>
   </nav>
-</header>
-<main>
-<section id="official" class="on">
-  <div class="card">
-    <h2>Harbor OS — FreshOS Zen Garden</h2>
-    <p class="lead">Independent overlay download. Only xAI can put this IA inside the production Grok app. Anyone can download the zip today.</p>
-    <div class="row">
-      <a class="btn" href="https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip">Download overlay zip</a>
-      <a class="btn ghost" href="https://github.com/djlacavera21/harbor-os">Repository</a>
-      <a class="btn ghost" href="https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json">Catalog JSON</a>
-    </div>
-    <p class="lead">curl -L -o harbor-os.zip https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip</p>
-  </div>
-  <div class="card">
-    <p class="lead">Proposed Grok App IA</p>
-    <div class="ia">Grok App
+  <main>
+    <section id="official" class="on">
+      <div class="card">
+        <h2>Harbor OS — FreshOS Zen Garden</h2>
+        <p class="lead">Independent overlay download. This page is the live Experimentals stand-in. Only xAI can put this information architecture inside the production Grok app. Anyone can download the zip today — no account required.</p>
+        <div class="row">
+          <a class="btn" id="dl" href="https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip">Download overlay zip</a>
+          <button class="btn ghost" id="copy">Copy download link</button>
+          <a class="btn ghost" href="https://github.com/djlacavera21/harbor-os">Repository</a>
+          <a class="btn ghost" href="https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json">Catalog JSON</a>
+        </div>
+        <p class="note">curl -L -o harbor-os.zip https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip</p>
+      </div>
+      <div class="card">
+        <p class="lead">Proposed Grok App information architecture</p>
+        <div class="ia">Grok App
  └── Experimentals
-      ├── Harbor OS     official[] + zip
-      ├── Flavors       official[] + community[]
-      └── Upload flavor X Premium+ submenu</div>
-  </div>
-</section>
-<section id="flavors">
-  <div class="card">
-    <h2>Flavors</h2>
-    <p class="lead">Official line is free. Community packs stay unsigned until reviewed.</p>
-  </div>
-  <div class="grid" id="grid"></div>
-</section>
-<section id="upload">
-  <div class="card">
-    <h2>Upload flavor <span class="pill">X Premium+</span></h2>
-    <p class="lead">Production would hide this submenu unless the bound X account is Premium+. This page only simulates the gate.</p>
-    <div class="gate"><label><input id="premium" type="checkbox"/> I hold X Premium+ (or I am rehearsing)</label></div>
-    <input id="file" type="file" accept=".yaml,.yml,.zip" disabled/>
-    <p class="lead">Or paste harbor-flavor/v1 YAML</p>
-    <textarea id="yaml" disabled placeholder="schema: harbor-flavor/v1"></textarea>
-    <div class="row">
-      <button class="btn" id="validate" disabled>Validate</button>
-      <a class="btn ghost" href="https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml">Submit flavor issue</a>
-    </div>
-    <div id="log">Gate closed.</div>
-  </div>
-</section>
-<footer>harbor-experimentals-catalog/v1 · overlay 1.13.0 · MIT · independent</footer>
-</main>
+      ├── Harbor OS          catalog.official[] + overlay zip
+      ├── Flavors            official[] + community[]
+      └── Upload flavor      X Premium+ submenu
+            harbor-flavor/v1 YAML or zip ≤ 50 MiB</div>
+        <p class="note">Upload gate is a product decision for xAI. The format is specified here so a future tab does not need a new file type.</p>
+      </div>
+    </section>
+    <section id="flavors">
+      <div class="card">
+        <h2>Flavors</h2>
+        <p class="lead">Official line is free. Community packs stay unsigned until reviewed. Search is local — this station works even when raw GitHub fetch is blocked.</p>
+        <input class="search" id="q" placeholder="Search flavors by name, id, or wing…"/>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+    <section id="upload">
+      <div class="card">
+        <h2>Upload flavor <span class="pill">X Premium+</span></h2>
+        <p class="lead">Production would hide this submenu unless the bound X account is Premium+. This page only simulates the gate. Live entitlement checks stay with xAI.</p>
+        <div class="gate"><label><input id="premium" type="checkbox"/> I hold X Premium+ (or I am rehearsing)</label></div>
+        <input id="file" type="file" accept=".yaml,.yml,.zip" disabled/>
+        <p class="lead">Or paste harbor-flavor/v1 YAML</p>
+        <textarea id="yaml" disabled placeholder="schema: harbor-flavor/v1"></textarea>
+        <div class="row">
+          <button class="btn" id="validate" disabled>Validate</button>
+          <a class="btn ghost" href="https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml">Submit flavor issue</a>
+        </div>
+        <div id="log">Gate closed. Check Premium+ to open the submenu.</div>
+      </div>
+    </section>
+  </main>
+  <footer>harbor-experimentals-catalog/v1 · overlay 1.14.0 · MIT · independent · never ships a Mint ISO</footer>
+</div>
 <script>
 const ZIP="https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip";
 const SRC="https://github.com/djlacavera21/harbor-os";
+const EMBEDDED={
+  official:[{id:"zen-garden",name:"FreshOS Zen Garden Edition",version:"1.14.0",channel:"official",risk:"low",summary:"Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, TUI agent station, optional Grok Zen Master, and local Premium+ ingest rehearsal.",download:ZIP,source:SRC}],
+  community:[
+    {id:"empire-stack",name:"Empire Stack Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Full-wing operator stack plus the Cubic bake checklist.",download:SRC+"/tree/main/flavors/empire-stack",source:SRC+"/tree/main/flavors/empire-stack"},
+    {id:"sovereign-gateway",name:"Sovereign Gateway Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Experimentals-first flavor. Independent download card and Premium+ submenu rehearsal.",download:SRC+"/tree/main/flavors/sovereign-gateway",source:SRC+"/tree/main/flavors/sovereign-gateway"},
+    {id:"war-room",name:"War Room Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Strategy-first module weighting: scenario board, alliance map, long-horizon notes.",download:SRC+"/tree/main/flavors/war-room",source:SRC+"/tree/main/flavors/war-room"},
+    {id:"research-harbor",name:"Research Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Research wing default.",download:SRC+"/tree/main/flavors/research-harbor",source:SRC+"/tree/main/flavors/research-harbor"},
+    {id:"airgap-tui",name:"Airgap TUI Station",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Minimal TUI-oriented flavor. Air-gap friendly.",download:SRC+"/tree/main/flavors/airgap-tui",source:SRC+"/tree/main/flavors/airgap-tui"},
+    {id:"publishing-harbor",name:"Publishing Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Outbound drafts. Upload gate proposed as X Premium+.",download:SRC+"/tree/main/flavors/publishing-harbor",source:SRC+"/tree/main/flavors/publishing-harbor"},
+    {id:"finance-harbor",name:"Finance Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Local ledger and sovereignty-focused trade sketches.",download:SRC+"/tree/main/flavors/finance-harbor",source:SRC+"/tree/main/flavors/finance-harbor"},
+    {id:"design-harbor",name:"Design Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Visual production flavor.",download:SRC+"/tree/main/flavors/design-harbor",source:SRC+"/tree/main/flavors/design-harbor"},
+    {id:"crew-quarters",name:"Crew Quarters Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Operator environment flavor.",download:SRC+"/tree/main/flavors/crew-quarters",source:SRC+"/tree/main/flavors/crew-quarters"},
+    {id:"archives-harbor",name:"Archives Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Memory-first flavor.",download:SRC+"/tree/main/flavors/archives-harbor",source:SRC+"/tree/main/flavors/archives-harbor"}
+  ]
+};
 function show(id){
   document.querySelectorAll("main section").forEach(function(s){s.classList.toggle("on",s.id===id);});
-  document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",b.dataset.t===id);});
+  document.querySelectorAll("nav button").forEach(function(b){b.classList.toggle("on",b.dataset.t===id);});
   history.replaceState(null,"","#"+id);
 }
-document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){show(b.dataset.t);};});
+document.querySelectorAll("nav button").forEach(function(b){b.onclick=function(){show(b.dataset.t);};});
 if(location.hash) show(location.hash.slice(1));
+document.getElementById("copy").onclick=async function(){
+  try{await navigator.clipboard.writeText(ZIP);this.textContent="Copied";setTimeout(()=>{this.textContent="Copy download link";},1600);}
+  catch(e){prompt("Copy this download link",ZIP);}
+};
 const premium=document.getElementById("premium");
 const file=document.getElementById("file");
 const yaml=document.getElementById("yaml");
 const validate=document.getElementById("validate");
 const log=document.getElementById("log");
-premium.onchange=function(){[file,yaml,validate].forEach(function(el){el.disabled=!premium.checked;});log.textContent=premium.checked?"Gate open (local Premium+ simulation).":"Gate closed.";};
-file.onchange=async function(){const f=file.files[0];if(!f)return;if(f.size>50*1024*1024){log.innerHTML='<span class="bad">Over 50 MiB</span>';return;}if(/\.(iso|img)$/i.test(f.name)){log.innerHTML='<span class="bad">ISO forbidden</span>';return;}yaml.value=await f.text();};
+premium.onchange=function(){[file,yaml,validate].forEach(function(el){el.disabled=!premium.checked;});log.textContent=premium.checked?"Gate open (local Premium+ simulation). Paste YAML or choose a file ≤ 50 MiB.":"Gate closed. Check Premium+ to open the submenu.";};
+file.onchange=async function(){
+  const f=file.files[0]; if(!f) return;
+  if(f.size>50*1024*1024){log.innerHTML='<span class="bad">Over 50 MiB</span>';return;}
+  if(/\.(iso|img)$/i.test(f.name)){log.innerHTML='<span class="bad">ISO / disk images are forbidden</span>';return;}
+  yaml.value=await f.text();
+};
 validate.onclick=function(){
   const t=yaml.value;
   const need=["schema:","id:","name:","version:","base:","identity:"];
   const miss=need.filter(function(k){return t.indexOf(k)<0;});
   const bad=/api_key|xai_api_key|begin rsa private|official xai os|official grok os/i.test(t);
-  log.innerHTML=(miss.length||bad)?'<span class="bad">INVALID</span>\n'+(miss.join(", ")+(bad?" secret or official-xAI claim":"")):'<span class="ok">Looks like harbor-flavor/v1</span>';
+  const schemaOk=/schema:\s*harbor-flavor\/v1/.test(t);
+  if(!schemaOk) miss.push("schema must be harbor-flavor/v1");
+  log.innerHTML=(miss.length||bad)?'<span class="bad">INVALID</span>\n'+(miss.join(", ")+(bad?" · secret or official-xAI claim":"")):'<span class="ok">VALID harbor-flavor/v1</span>\nReady for the submit-flavor issue. Production would queue catalog.community[] review.';
 };
-(async function(){
-  let catalog=null;
-  try{const r=await fetch("https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json");if(r.ok)catalog=await r.json();}catch(e){}
-  const official=(catalog&&catalog.official)||[{name:"FreshOS Zen Garden Edition",version:"1.13.0",risk:"low",summary:"Official overlay.",download:ZIP,source:SRC}];
-  const community=(catalog&&catalog.community)||[];
-  const items=official.concat(community);
+function render(items){
   const g=document.getElementById("grid");
+  g.innerHTML="";
   items.forEach(function(i){
     const a=document.createElement("article");
     a.className="flavor";
@@ -126,6 +169,21 @@ validate.onclick=function(){
     a.innerHTML="<div class=\"lead\">"+(i.channel||"")+" · "+(i.version||"")+" · "+(i.risk||"unsigned")+"</div><h3>"+i.name+"</h3><p class=\"lead\">"+(i.summary||"")+"</p><div class=\"row\">"+dl+src+"</div>";
     g.appendChild(a);
   });
+}
+let catalog=EMBEDDED;
+(async function(){
+  try{
+    const r=await fetch("https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json",{cache:"no-store"});
+    if(r.ok) catalog=await r.json();
+  }catch(e){}
+  const all=(catalog.official||[]).concat(catalog.community||[]);
+  render(all);
+  document.getElementById("q").oninput=function(){
+    const q=this.value.toLowerCase();
+    render(all.filter(function(i){
+      return [i.id,i.name,i.summary,i.channel].join(" ").toLowerCase().indexOf(q)>=0;
+    }));
+  };
 })();
 </script>
 </body>
