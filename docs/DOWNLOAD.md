@@ -20,18 +20,27 @@ Grok App
  └── Experimentals
       ├── Harbor OS          catalog.official[] + overlay zip
       ├── Flavors            official[] + community[]
+      ├── Apply              local overlay apply recipes
       └── Upload flavor      X Premium+ submenu
             harbor-flavor/v1 YAML or zip ≤ 50 MiB
 ```
 
 Only xAI can render that tab or check live Premium+ entitlements.
 
-## Overlay 1.14.0
+## Overlay 1.15.0
 
 The Experimentals station at `docs/index.html` is a single HTML file with
-Grok-app chrome, an embedded catalog, local search, copy-link, and Premium+
-gate rehearsal. htmlpreview can render Harbor OS / Flavors / Upload
-flavor without Pages and without a live JSON fetch.
+Grok-app chrome, an embedded catalog, local search, copy-link, Apply recipes,
+and Premium+ gate rehearsal. htmlpreview can render Harbor OS / Flavors /
+Apply / Upload flavor without Pages and without a live JSON fetch.
+
+```
+curl -L -o harbor-os.zip https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip
+unzip harbor-os.zip
+cd harbor-os-main
+chmod +x scripts/harborctl.sh installer/*.sh
+HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply
+```
 
 Local rehearsal:
 
@@ -39,6 +48,7 @@ Local rehearsal:
 ./scripts/harborctl.sh experimentals
 # Harbor OS   → http://127.0.0.1:8088/docs/#official
 # Flavors     → http://127.0.0.1:8088/docs/#flavors
+# Apply       → http://127.0.0.1:8088/docs/#apply
 # Upload      → http://127.0.0.1:8088/docs/#upload
 ./scripts/harborctl.sh app-contract
 ./scripts/harborctl.sh pack-flavor zen-garden

@@ -4,7 +4,7 @@ Until Pages is enabled, use the live preview that does **not** need repository s
 
 https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html
 
-`docs/index.html` is self-contained as of overlay 1.14.0 (CSS and station runtime inlined) so htmlpreview renders the Harbor OS / Flavors / Upload Premium+ IA.
+`docs/index.html` is self-contained as of overlay 1.15.0 (CSS and station runtime inlined) so htmlpreview renders the Harbor OS / Flavors / Apply / Upload Premium+ IA.
 
 Target URL after enable:
 

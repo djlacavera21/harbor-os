@@ -1,7 +1,7 @@
 {
   "schema": "harbor-grok-app-client-ia/v1",
-  "updated": "2026-09-27",
-  "overlay_version": "1.14.0",
+  "updated": "2026-09-28",
+  "overlay_version": "1.15.0",
   "affiliation": "independent",
   "official_xai_product": false,
   "cannot_mutate_grok_app": true,
@@ -35,6 +35,18 @@
           "kind": "pane",
           "min_subscription": "none",
           "source": "catalog.official + catalog.community"
+        },
+        {
+          "id": "apply",
+          "label": "Apply",
+          "kind": "pane",
+          "min_subscription": "none",
+          "source": "docs/APPLY.md",
+          "primary_action": {
+            "id": "copy_apply_command",
+            "label": "Copy apply command",
+            "command": "HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply"
+          }
         },
         {
           "id": "upload-flavor",
