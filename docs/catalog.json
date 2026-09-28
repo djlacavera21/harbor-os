@@ -1,7 +1,7 @@
 {
   "schema": "harbor-experimentals-catalog/v1",
-  "updated": "2026-09-27",
-  "version": "1.14.0",
+  "updated": "2026-09-28",
+  "version": "1.15.0",
   "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
   "source": "https://github.com/djlacavera21/harbor-os",
   "pages": "https://djlacavera21.github.io/harbor-os/",
@@ -16,14 +16,14 @@
     {
       "id": "zen-garden",
       "name": "FreshOS Zen Garden Edition",
-      "version": "1.14.0",
+      "version": "1.15.0",
       "channel": "official",
       "download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
       "source": "https://github.com/djlacavera21/harbor-os",
       "flavor": "flavors/zen-garden/harbor.flavor.yaml",
       "risk": "low",
       "min_subscription": "none",
-      "summary": "Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, TUI agent station, optional Grok Zen Master, self-contained Experimentals station with search and copy-link, SHA-256 overlay packs, and local Premium+ ingest rehearsal. Overlay 1.14.0."
+      "summary": "Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, TUI agent station, optional Grok Zen Master, Apply pane, and local Premium+ ingest rehearsal. Overlay 1.15.0."
     }
   ],
   "community": [
