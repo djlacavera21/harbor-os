@@ -1,4 +1,4 @@
-# Harbor OS status — 28 September 2026 (overlay 1.15.0)
+# Harbor OS status — 30 September 2026 (overlay 1.16.0)
 
 Harbor OS is a **declared-base overlay + flavor protocol**, not a from-scratch kernel
 and not an official xAI product.
@@ -17,8 +17,9 @@ and not an official xAI product.
 | Pages station | https://djlacavera21.github.io/harbor-os/ | **Owner must enable Pages** |
 | Official Grok App tab | — | **Not shippable from this repo** |
 
-## 28 September 2026
+## 30 September 2026
 
-- Overlay **1.15.0**.
-- Experimentals station adds an Apply pane and per-flavor apply-command copy.
+- Overlay **1.16.0**.
+- Three-layer full-OS map in `docs/FULL_OS.md` and `harborctl os-kit`.
+- Experimentals station still rehearses Harbor OS / Flavors / Apply / Upload Premium+.
 - Official Grok App Experimentals tab remains xAI-owned. Independent download is the overlay zip.
