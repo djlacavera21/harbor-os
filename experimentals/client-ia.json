@@ -1,7 +1,7 @@
 {
   "schema": "harbor-grok-app-client-ia/v1",
-  "updated": "2026-09-28",
-  "overlay_version": "1.15.0",
+  "updated": "2026-09-30",
+  "overlay_version": "1.16.0",
   "affiliation": "independent",
   "official_xai_product": false,
   "cannot_mutate_grok_app": true,

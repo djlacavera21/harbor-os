@@ -14,6 +14,7 @@ Harbor OS is an overlay, not a relicensed Linux Mint ISO and not an official xAI
 | Manifest | https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/grok-app-manifest.json | none |
 | Client IA | https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/client-ia.json | none |
 | Submit a flavor | https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml | GitHub account |
+| Full-OS map | https://github.com/djlacavera21/harbor-os/blob/main/docs/FULL_OS.md | none |
 
 ```
 Grok App
@@ -27,7 +28,7 @@ Grok App
 
 Only xAI can render that tab or check live Premium+ entitlements.
 
-## Overlay 1.15.0
+## Overlay 1.16.0
 
 The Experimentals station at `docs/index.html` is a single HTML file with
 Grok-app chrome, an embedded catalog, local search, copy-link, Apply recipes,
@@ -40,6 +41,7 @@ unzip harbor-os.zip
 cd harbor-os-main
 chmod +x scripts/harborctl.sh installer/*.sh
 HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply
+./scripts/harborctl.sh os-kit
 ```
 
 Local rehearsal:
