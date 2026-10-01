@@ -1,13 +1,14 @@
 {
   "schema": "harbor-grok-app-client-ia/v1",
-  "updated": "2026-09-30",
-  "overlay_version": "1.16.0",
+  "updated": "2026-10-01",
+  "overlay_version": "1.17.0",
   "affiliation": "independent",
   "official_xai_product": false,
   "cannot_mutate_grok_app": true,
   "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
   "catalog": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json",
   "manifest": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/grok-app-manifest.json",
+  "download_receipt": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/download-receipt.json",
   "station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
   "app": {
     "id": "grok-app",
@@ -57,7 +58,8 @@
           "accepts": [".yaml", ".yml", ".zip"],
           "max_bytes": 52428800,
           "validator": "experimentals/validate_flavor.py",
-          "on_success": "queue catalog.community[] review",
+          "packet": "experimentals/review_packet.py",
+          "on_success": "queue catalog.community[] review as risk=unsigned",
           "local_rehearsal": "http://127.0.0.1:8088/docs/#upload"
         }
       ]
@@ -68,6 +70,7 @@
     "Download action points at the overlay zip, never at a bootleg Mint ISO.",
     "Hide Upload flavor unless the bound X account is Premium+.",
     "Reject uploads that fail harbor-flavor/v1, contain secrets, contain .iso/.img, or claim official xAI / Grok OS status.",
+    "A passing upload becomes a review packet, not an immediate catalog publish.",
     "Community listings stay risk: unsigned until a human review flips them.",
     "Anyone may download flavors (min_subscription: none). Only Premium+ may upload."
   ]

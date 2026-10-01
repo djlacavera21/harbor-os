@@ -1,18 +1,19 @@
 {
   "schema": "harbor-grok-app-manifest/v1",
-  "updated": "2026-09-30",
+  "updated": "2026-10-01",
   "product": "Harbor OS",
   "codename": "FreshOS Zen Garden",
   "affiliation": "independent",
   "official_xai_product": false,
   "cannot_mutate_grok_app": true,
-  "overlay_version": "1.16.0",
+  "overlay_version": "1.17.0",
   "surfaces": {
     "source": "https://github.com/djlacavera21/harbor-os",
     "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
     "pages_station": "https://djlacavera21.github.io/harbor-os/",
     "independent_station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
     "catalog": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json",
+    "download_receipt": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/download-receipt.json",
     "flavor_schema": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/spec/harbor-flavor.schema.json",
     "submit_flavor": "https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml",
     "xai_brief": "https://github.com/djlacavera21/harbor-os/blob/main/docs/XAI_EXPERIMENTALS_BRIEF.md"
@@ -23,7 +24,7 @@
       {"id": "harbor-os", "label": "Harbor OS", "source": "catalog.official", "min_subscription": "none", "primary_action": "download_overlay_zip"},
       {"id": "flavors", "label": "Flavors", "source": "catalog.official + catalog.community", "min_subscription": "none", "primary_action": "browse_and_download_flavor_yaml"},
       {"id": "apply", "label": "Apply", "source": "docs/APPLY.md", "min_subscription": "none", "primary_action": "copy_apply_command"},
-      {"id": "upload-flavor", "label": "Upload flavor", "submenu": true, "min_subscription": "premium-plus", "accepts": [".yaml", ".yml", ".zip"], "max_bytes": 52428800, "validator": "experimentals/validate_flavor.py", "on_success": "queue catalog.community[] review"}
+      {"id": "upload-flavor", "label": "Upload flavor", "submenu": true, "min_subscription": "premium-plus", "accepts": [".yaml", ".yml", ".zip"], "max_bytes": 52428800, "validator": "experimentals/validate_flavor.py", "packet": "experimentals/review_packet.py", "on_success": "queue catalog.community[] review as risk=unsigned"}
     ]
   },
   "upload_policy": [
