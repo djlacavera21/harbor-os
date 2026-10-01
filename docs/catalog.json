@@ -1,7 +1,7 @@
 {
   "schema": "harbor-experimentals-catalog/v1",
-  "updated": "2026-09-30",
-  "version": "1.16.0",
+  "updated": "2026-10-01",
+  "version": "1.17.0",
   "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
   "source": "https://github.com/djlacavera21/harbor-os",
   "pages": "https://djlacavera21.github.io/harbor-os/",
@@ -11,19 +11,20 @@
   "download_guide": "https://github.com/djlacavera21/harbor-os/blob/main/docs/DOWNLOAD.md",
   "independent_station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
   "client_ia": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/client-ia.json",
+  "download_receipt": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/download-receipt.json",
   "note": "This catalog is the community Experimentals index. It is not an official xAI or Grok App surface. Zip + htmlpreview station work without Pages. A future Grok App tab could consume this same schema.",
   "official": [
     {
       "id": "zen-garden",
       "name": "FreshOS Zen Garden Edition",
-      "version": "1.16.0",
+      "version": "1.17.0",
       "channel": "official",
       "download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
       "source": "https://github.com/djlacavera21/harbor-os",
       "flavor": "flavors/zen-garden/harbor.flavor.yaml",
       "risk": "low",
       "min_subscription": "none",
-      "summary": "Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, TUI agent station, optional Grok Zen Master, Apply pane, and local Premium+ ingest rehearsal. Overlay 1.16.0."
+      "summary": "Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, optional Grok Zen Master, and Premium+ review-packet upload. Overlay 1.17.0."
     }
   ],
   "community": [
@@ -44,6 +45,7 @@
     "accepts": [".yaml", ".yml", ".zip"],
     "max_bytes": 52428800,
     "submit_issue": "https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml",
+    "packet": "experimentals/review_packet.py",
     "rules": [
       "Must validate against harbor-flavor/v1",
       "Must declare base distro honestly",
