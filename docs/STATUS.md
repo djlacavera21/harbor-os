@@ -1,4 +1,4 @@
-# Harbor OS status — 1 October 2026 (overlay 1.17.0)
+# Harbor OS status — 5 October 2026 (overlay 1.18.0)
 
 Harbor OS is a **declared-base overlay + flavor protocol**, not a from-scratch kernel
 and not an official xAI product.
@@ -18,10 +18,24 @@ and not an official xAI product.
 | Pages station | https://djlacavera21.github.io/harbor-os/ | **Owner must enable Pages** |
 | Official Grok App tab | — | **Not shippable from this repo** |
 
-## 1 October 2026
+## 5 October 2026
 
-- Overlay **1.17.0**.
-- Experimentals station corrected off the stale 1.15.0 pill.
-- Premium+ upload submenu builds a review packet (`catalog.community[]`, `risk: unsigned`) instead of a boolean string check.
-- `experimentals/review_packet.py` and `experimentals/download-receipt.json` added.
+- Overlay **1.18.0**.
+- Experimentals station pill was still 1.15.0 on `docs/index.html`. Corrected, and a Full OS pane was added.
+- `iso/live-apply.sh` applies the overlay onto an official Mint 22.3 live session or install. Still does not redistribute a Mint ISO.
+- Premium+ upload submenu builds a `catalog.community[]` review packet (`risk: unsigned`) instead of a boolean string check.
 - Official Grok App Experimentals tab remains xAI-owned. Independent download is the overlay zip.
+
+## Proposed Grok App IA
+
+```
+Grok App
+ └── Experimentals
+      ├── Harbor OS          catalog.official[] + overlay zip
+      ├── Full OS            official Mint 22.3 + iso/live-apply.sh
+      ├── Flavors            official[] + community[]
+      ├── Apply              local overlay apply recipes
+      └── Upload flavor      X Premium+ submenu
+            harbor-flavor/v1 YAML or zip ≤ 50 MiB
+            → review packet → catalog.community[] (unsigned)
+```

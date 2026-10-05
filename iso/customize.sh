@@ -17,20 +17,19 @@ EOF
 # Identity overlay — do not overwrite upstream /etc/os-release wholesale.
 cat >/etc/harbor-os/os-release <<'EOF'
 NAME="FreshOS"
-VERSION="1.9 Zen Garden"
+VERSION="1.18.0 Zen Garden"
 ID=freshos
 ID_LIKE="linuxmint ubuntu debian"
-PRETTY_NAME="FreshOS 1.9 Zen Garden (Harbor overlay)"
+PRETTY_NAME="FreshOS 1.18.0 Zen Garden (Harbor overlay)"
 HOME_URL="https://github.com/djlacavera21/harbor-os"
 SUPPORT_URL="https://github.com/djlacavera21/harbor-os/issues"
 VARIANT="Harbor OS Experimentals"
 EOF
 
-if [[ -d /etc/hostname ]] || true; then
-  if [[ -w /etc/hostname ]]; then
-    echo "freshos" >/etc/hostname || true
-  fi
+if [[ -w /etc/hostname ]]; then
+  echo "freshos" >/etc/hostname || true
 fi
 
 echo "Cubic/chroot customization complete for flavor $HARBOR_FLAVOR_ID."
 echo "Write the ISO with Cubic, then boot via Ventoy or VirtualBox EFI."
+echo "Non-Cubic path: boot official Mint and run iso/live-apply.sh."

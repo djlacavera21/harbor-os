@@ -1,17 +1,19 @@
 {
   "schema": "harbor-download-receipt/v1",
-  "updated": "2026-10-01",
-  "overlay_version": "1.17.0",
+  "updated": "2026-10-05",
+  "overlay_version": "1.18.0",
   "product": "Harbor OS",
   "codename": "FreshOS Zen Garden",
   "official_xai_product": false,
-  "what_this_is": "Declared-base overlay on Linux Mint 22.3 Cinnamon. Not a kernel fork. Not a relicensed Mint ISO.",
+  "what_this_is": "Declared-base overlay on Linux Mint 22.3 Cinnamon. Not a kernel fork. Not a relicensed Mint ISO. Full OS path is official Mint plus iso/live-apply.sh.",
   "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
   "source": "https://github.com/djlacavera21/harbor-os",
   "station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
   "pages_station": "https://djlacavera21.github.io/harbor-os/",
   "pages_note": "404 until the repository owner enables GitHub Pages from /docs.",
   "catalog": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json",
+  "full_os": "https://github.com/djlacavera21/harbor-os/blob/main/docs/FULL_OS.md",
+  "live_apply": "https://github.com/djlacavera21/harbor-os/blob/main/iso/live-apply.sh",
   "proposed_grok_app_tab": "Experimentals",
   "upload_submenu": {
     "label": "Upload flavor",
@@ -21,5 +23,6 @@
     "max_bytes": 52428800,
     "on_success": "review packet queued as catalog.community[] risk=unsigned"
   },
-  "apply": "HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply"
+  "apply": "HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply",
+  "full_os_apply": "bash iso/live-apply.sh"
 }

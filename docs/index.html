@@ -54,11 +54,12 @@ code{font:12px/1.4 ui-monospace,monospace;background:#0e1014;padding:1px 5px;bor
     <div class="pills">
       <span class="pill">Independent station</span>
       <span class="pill dim">Not an xAI product</span>
-      <span class="pill dim">Overlay 1.15.0</span>
+      <span class="pill dim">Overlay 1.18.0</span>
     </div>
   </header>
   <nav>
     <button class="on" data-t="official">Harbor OS</button>
+    <button data-t="full-os">Full OS</button>
     <button data-t="flavors">Flavors</button>
     <button data-t="apply">Apply</button>
     <button data-t="upload">Upload flavor · Premium+</button>
@@ -81,11 +82,32 @@ code{font:12px/1.4 ui-monospace,monospace;background:#0e1014;padding:1px 5px;bor
         <div class="ia">Grok App
  └── Experimentals
       ├── Harbor OS          catalog.official[] + overlay zip
+      ├── Full OS            official Mint 22.3 + iso/live-apply.sh
       ├── Flavors            official[] + community[]
       ├── Apply              local overlay apply recipes
       └── Upload flavor      X Premium+ submenu
-            harbor-flavor/v1 YAML or zip ≤ 50 MiB</div>
+            harbor-flavor/v1 YAML or zip ≤ 50 MiB
+            → review packet → catalog.community[] (unsigned)</div>
         <p class="note">Upload gate is a product decision for xAI. The format is specified here so a future tab does not need a new file type.</p>
+      </div>
+    </section>
+    <section id="full-os">
+      <div class="card">
+        <h2>Full OS</h2>
+        <p class="lead">Harbor OS is a declared-base overlay, not a kernel fork and not a relicensed Linux Mint ISO. The bootable path is official Mint plus this overlay. The independent download stays the zip below.</p>
+        <ol class="steps">
+          <li>Download the overlay zip. No Grok account, no Premium+.</li>
+          <li>Download the official Linux Mint 22.3 Cinnamon ISO from linuxmint.com. Harbor does not host it.</li>
+          <li>Write that ISO to Ventoy or a VM. Boot it.</li>
+          <li>On the Mint session, unzip Harbor and run <code>bash iso/live-apply.sh</code>.</li>
+          <li>Optional bake: Cubic chroot, then <code>bash iso/customize.sh</code>, then write your own ISO. Do not redistribute it as an xAI product.</li>
+        </ol>
+        <div class="row">
+          <a class="btn" href="https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip">Download overlay zip</a>
+          <button class="btn ghost" id="copy-live">Copy live-apply command</button>
+          <a class="btn ghost" href="https://github.com/djlacavera21/harbor-os/blob/main/docs/FULL_OS.md">Full OS notes</a>
+        </div>
+        <p class="note">Garden after apply: ./scripts/harborctl.sh garden → http://127.0.0.1:8080</p>
       </div>
     </section>
     <section id="flavors">
@@ -112,7 +134,7 @@ code{font:12px/1.4 ui-monospace,monospace;background:#0e1014;padding:1px 5px;bor
           <button class="btn" id="copy-apply">Copy official apply command</button>
           <a class="btn ghost" href="https://github.com/djlacavera21/harbor-os/blob/main/docs/DOWNLOAD.md">Download guide</a>
         </div>
-        <p class="note">A personal bootable ISO is operator-side work against the official Mint image via Cubic. This repo never ships a Mint ISO.</p>
+        <p class="note">A personal bootable image is operator-side work against the official Mint image. This repo never ships a Mint ISO.</p>
       </div>
     </section>
     <section id="upload">
@@ -124,21 +146,22 @@ code{font:12px/1.4 ui-monospace,monospace;background:#0e1014;padding:1px 5px;bor
         <p class="lead">Or paste harbor-flavor/v1 YAML</p>
         <textarea id="yaml" disabled placeholder="schema: harbor-flavor/v1"></textarea>
         <div class="row">
-          <button class="btn" id="validate" disabled>Validate</button>
+          <button class="btn" id="validate" disabled>Validate and build packet</button>
           <a class="btn ghost" href="https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml">Submit flavor issue</a>
         </div>
         <div id="log">Gate closed. Check Premium+ to open the submenu.</div>
       </div>
     </section>
   </main>
-  <footer>harbor-experimentals-catalog/v1 · overlay 1.15.0 · MIT · independent · never ships a Mint ISO</footer>
+  <footer>harbor-experimentals-catalog/v1 · overlay 1.18.0 · MIT · independent · never ships a Mint ISO</footer>
 </div>
 <script>
 const ZIP="https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip";
 const SRC="https://github.com/djlacavera21/harbor-os";
 const APPLY="HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply";
+const LIVE="bash iso/live-apply.sh";
 const EMBEDDED={
-  official:[{id:"zen-garden",name:"FreshOS Zen Garden Edition",version:"1.15.0",channel:"official",risk:"low",summary:"Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, TUI agent station, optional Grok Zen Master, Apply pane, and local Premium+ ingest rehearsal.",download:ZIP,source:SRC}],
+  official:[{id:"zen-garden",name:"FreshOS Zen Garden Edition",version:"1.18.0",channel:"official",risk:"low",summary:"Mint-based sovereign flavor with Zen Garden visualizer, Full OS live-apply path, and Premium+ review-packet upload. Overlay 1.18.0.",download:ZIP,source:SRC}],
   community:[
     {id:"empire-stack",name:"Empire Stack Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Full-wing operator stack plus the Cubic bake checklist.",download:SRC+"/tree/main/flavors/empire-stack",source:SRC+"/tree/main/flavors/empire-stack"},
     {id:"sovereign-gateway",name:"Sovereign Gateway Harbor",version:"0.1.0",channel:"community",risk:"unsigned",summary:"Experimentals-first flavor. Independent download card and Premium+ submenu rehearsal.",download:SRC+"/tree/main/flavors/sovereign-gateway",source:SRC+"/tree/main/flavors/sovereign-gateway"},
@@ -165,6 +188,7 @@ async function copyText(el,text,label){
 }
 document.getElementById("copy").onclick=function(){copyText(this,ZIP,"Copy download link");};
 document.getElementById("copy-apply").onclick=function(){copyText(this,APPLY,"Copy official apply command");};
+document.getElementById("copy-live").onclick=function(){copyText(this,LIVE,"Copy live-apply command");};
 const premium=document.getElementById("premium");
 const file=document.getElementById("file");
 const yaml=document.getElementById("yaml");
@@ -177,6 +201,10 @@ file.onchange=async function(){
   if(/\.(iso|img)$/i.test(f.name)){log.innerHTML='<span class="bad">ISO / disk images are forbidden</span>';return;}
   yaml.value=await f.text();
 };
+function field(t,k){
+  const m=t.match(new RegExp("(?:^|\\n)"+k+":\\s*([^\\n]+)"));
+  return m?m[1].trim().replace(/^['\"]|['\"]$/g,""):"";
+}
 validate.onclick=function(){
   const t=yaml.value;
   const need=["schema:","id:","name:","version:","base:","identity:"];
@@ -184,7 +212,20 @@ validate.onclick=function(){
   const bad=/api_key|xai_api_key|begin rsa private|official xai os|official grok os/i.test(t);
   const schemaOk=/schema:\s*harbor-flavor\/v1/.test(t);
   if(!schemaOk) miss.push("schema must be harbor-flavor/v1");
-  log.innerHTML=(miss.length||bad)?'<span class="bad">INVALID</span>\n'+(miss.join(", ")+(bad?" · secret or official-xAI claim":"")):'<span class="ok">VALID harbor-flavor/v1</span>\nReady for the submit-flavor issue. Production would queue catalog.community[] review.';
+  if(miss.length||bad){
+    log.innerHTML='<span class="bad">INVALID</span>\n'+(miss.join(", ")+(bad?" · secret or official-xAI claim":""));
+    return;
+  }
+  const packet={
+    id:field(t,"id"),
+    name:field(t,"name"),
+    version:field(t,"version"),
+    channel:"community",
+    risk:"unsigned",
+    min_subscription:"none",
+    summary:"Premium+ upload rehearsal. Human review required before catalog publish."
+  };
+  log.innerHTML='<span class="ok">VALID harbor-flavor/v1</span>\nReview packet (not published):\n'+JSON.stringify(packet,null,2)+'\nSubmit via the flavor issue. Production would queue catalog.community[] as risk=unsigned.';
 };
 function render(items){
   const g=document.getElementById("grid");
@@ -203,9 +244,15 @@ function render(items){
 let catalog=EMBEDDED;
 (async function(){
   try{
-    const r=await fetch("https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json",{cache:"no-store"});
+    const r=await fetch("catalog.json",{cache:"no-store"});
     if(r.ok) catalog=await r.json();
   }catch(e){}
+  if(!catalog.official){
+    try{
+      const r=await fetch("https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/catalog.json",{cache:"no-store"});
+      if(r.ok) catalog=await r.json();
+    }catch(e){}
+  }
   const all=(catalog.official||[]).concat(catalog.community||[]);
   render(all);
   document.getElementById("q").oninput=function(){

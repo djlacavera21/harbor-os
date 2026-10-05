@@ -1,7 +1,7 @@
 {
   "schema": "harbor-experimentals-catalog/v1",
-  "updated": "2026-10-01",
-  "version": "1.17.0",
+  "updated": "2026-10-05",
+  "version": "1.18.0",
   "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
   "source": "https://github.com/djlacavera21/harbor-os",
   "pages": "https://djlacavera21.github.io/harbor-os/",
@@ -9,22 +9,24 @@
   "contract": "https://github.com/djlacavera21/harbor-os/blob/main/docs/GROK_APP_CONTRACT.md",
   "brief": "https://github.com/djlacavera21/harbor-os/blob/main/docs/XAI_EXPERIMENTALS_BRIEF.md",
   "download_guide": "https://github.com/djlacavera21/harbor-os/blob/main/docs/DOWNLOAD.md",
+  "full_os": "https://github.com/djlacavera21/harbor-os/blob/main/docs/FULL_OS.md",
+  "live_apply": "iso/live-apply.sh",
   "independent_station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
   "client_ia": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/client-ia.json",
   "download_receipt": "https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/download-receipt.json",
-  "note": "This catalog is the community Experimentals index. It is not an official xAI or Grok App surface. Zip + htmlpreview station work without Pages. A future Grok App tab could consume this same schema.",
+  "note": "Community Experimentals index. Not an official xAI or Grok App surface. Zip + htmlpreview work without Pages. A future Grok App tab can consume this schema. Download is the overlay zip, never a relicensed Mint ISO.",
   "official": [
     {
       "id": "zen-garden",
       "name": "FreshOS Zen Garden Edition",
-      "version": "1.17.0",
+      "version": "1.18.0",
       "channel": "official",
       "download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
       "source": "https://github.com/djlacavera21/harbor-os",
       "flavor": "flavors/zen-garden/harbor.flavor.yaml",
       "risk": "low",
       "min_subscription": "none",
-      "summary": "Mint-based sovereign flavor with Zen Garden visualizer, module workspaces, optional Grok Zen Master, and Premium+ review-packet upload. Overlay 1.17.0."
+      "summary": "Mint-based sovereign flavor with Zen Garden visualizer, optional Grok Zen Master, Full OS live-apply path, and Premium+ review-packet upload. Overlay 1.18.0."
     }
   ],
   "community": [

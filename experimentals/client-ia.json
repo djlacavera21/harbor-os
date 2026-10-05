@@ -1,7 +1,7 @@
 {
   "schema": "harbor-grok-app-client-ia/v1",
-  "updated": "2026-10-01",
-  "overlay_version": "1.17.0",
+  "updated": "2026-10-05",
+  "overlay_version": "1.18.0",
   "affiliation": "independent",
   "official_xai_product": false,
   "cannot_mutate_grok_app": true,
@@ -28,6 +28,18 @@
             "id": "download_overlay_zip",
             "label": "Download",
             "url_from": "catalog.independent_download"
+          }
+        },
+        {
+          "id": "full-os",
+          "label": "Full OS",
+          "kind": "pane",
+          "min_subscription": "none",
+          "source": "docs/FULL_OS.md",
+          "primary_action": {
+            "id": "live_apply",
+            "label": "Apply onto official Mint",
+            "command": "bash iso/live-apply.sh"
           }
         },
         {
@@ -68,6 +80,7 @@
   "client_rules": [
     "Label the product independent. Do not render official xAI OS branding.",
     "Download action points at the overlay zip, never at a bootleg Mint ISO.",
+    "Full OS means official Mint 22.3 plus iso/live-apply.sh or Cubic customize.sh. Do not host a derived ISO.",
     "Hide Upload flavor unless the bound X account is Premium+.",
     "Reject uploads that fail harbor-flavor/v1, contain secrets, contain .iso/.img, or claim official xAI / Grok OS status.",
     "A passing upload becomes a review packet, not an immediate catalog publish.",
