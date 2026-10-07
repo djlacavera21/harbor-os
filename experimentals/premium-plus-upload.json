@@ -1,0 +1,35 @@
+{
+  "schema": "harbor-premium-plus-upload/v1",
+  "updated": "2026-10-07",
+  "overlay_version": "1.19.0",
+  "official_xai_product": false,
+  "entitlement_owner": "xAI",
+  "proposed_placement": {
+    "tab": "Experimentals",
+    "parent": "Harbor OS",
+    "id": "upload-flavor",
+    "label": "Upload flavor",
+    "submenu": true,
+    "min_subscription": "premium-plus"
+  },
+  "accepts": [".yaml", ".yml", ".zip"],
+  "max_bytes": 52428800,
+  "validator": "experimentals/validate_flavor.py",
+  "on_success": "queue catalog.community[] as risk=unsigned until human review",
+  "rules": [
+    "Must validate against harbor-flavor/v1",
+    "Must declare the base distro honestly",
+    "Must not ship credentials, API keys, or telemetry endpoints",
+    "Must not claim official xAI, Grok OS, or FreshOS collaboration status",
+    "Unsigned community flavors stay risk=unsigned",
+    "No ISO, IMG, or disk image inside a flavor pack",
+    "Upload does not grant a bootable OS; it publishes a flavor manifest"
+  ],
+  "today_without_the_tab": {
+    "template": "flavors/template/harbor.flavor.yaml",
+    "validate": "./scripts/harborctl.sh validate flavors/<id>/harbor.flavor.yaml",
+    "pack": "./scripts/harborctl.sh pack-flavor <id>",
+    "submit": "https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml",
+    "local_rehearsal_header": "X-Harbor-Premium-Plus: 1"
+  }
+}

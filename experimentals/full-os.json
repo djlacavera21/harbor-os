@@ -1,0 +1,28 @@
+{
+  "schema": "harbor-full-os/v1",
+  "updated": "2026-10-07",
+  "overlay_version": "1.19.0",
+  "official_xai_product": false,
+  "cannot_mutate_grok_app": true,
+  "definition": "Full OS means official Linux Mint 22.3 Cinnamon plus the Harbor overlay applied by the operator. Harbor does not fork the kernel and does not host the Mint ISO.",
+  "layers": {
+    "A": "Overlay substrate. Independent zip. Ships from this repository.",
+    "B": "Personal bootable image. Operator verifies linuxmint-22.3-cinnamon-64bit.iso then runs iso/full-os-kit.sh and iso/live-apply.sh or Cubic.",
+    "C": "Grok App Experimentals chrome. Product decision for xAI. This file is the contract, not the tab."
+  },
+  "declared_base": {
+    "filename": "linuxmint-22.3-cinnamon-64bit.iso",
+    "sha256": "a081ab202cfda17f6924128dbd2de8b63518ac0531bcfe3f1a1b88097c459bd4",
+    "download_index": "https://www.linuxmint.com/download.php"
+  },
+  "independent_download": "https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip",
+  "station_preview": "https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html",
+  "proposed_pane": {
+    "tab": "Experimentals",
+    "id": "full-os",
+    "label": "Full OS",
+    "min_subscription": "none",
+    "primary_action": "open_independent_download",
+    "secondary_action": "show_mint_checksum_and_live_apply"
+  }
+}

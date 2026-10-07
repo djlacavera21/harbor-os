@@ -1,0 +1,15 @@
+# Declared base for Harbor OS 1.19.0 Full OS path.
+# Harbor does not host this image. Verify against the upstream sha256sum.txt.gpg.
+
+distro: Linux Mint
+version: 22.3
+codename: Zena
+edition: Cinnamon
+arch: amd64
+filename: linuxmint-22.3-cinnamon-64bit.iso
+size_bytes: 3091660800
+sha256: a081ab202cfda17f6924128dbd2de8b63518ac0531bcfe3f1a1b88097c459bd4
+published: 2026-01-08
+checksum_source: https://distro.ibiblio.org/mint/isos/stable/22.3/sha256sum.txt
+download_index: https://www.linuxmint.com/download.php
+note: Operator downloads the ISO from a Mint mirror. Harbor only verifies the hash and applies the overlay.
