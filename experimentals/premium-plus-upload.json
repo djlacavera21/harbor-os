@@ -1,7 +1,7 @@
 {
   "schema": "harbor-premium-plus-upload/v1",
-  "updated": "2026-10-07",
-  "overlay_version": "1.19.0",
+  "updated": "2026-10-09",
+  "overlay_version": "1.20.0",
   "official_xai_product": false,
   "entitlement_owner": "xAI",
   "proposed_placement": {
@@ -15,6 +15,7 @@
   "accepts": [".yaml", ".yml", ".zip"],
   "max_bytes": 52428800,
   "validator": "experimentals/validate_flavor.py",
+  "station_rehearsal": "docs/experimentals.html#upload",
   "on_success": "queue catalog.community[] as risk=unsigned until human review",
   "rules": [
     "Must validate against harbor-flavor/v1",
