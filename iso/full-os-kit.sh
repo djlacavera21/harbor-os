@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Harbor OS 1.19.0 — Full OS kit.
+# Harbor OS 1.20.0 — Full OS kit.
 # Stages a personal bootable workspace on top of an official Linux Mint 22.3
 # Cinnamon ISO. Does not download, modify, or redistribute that ISO.
 set -euo pipefail
 
-VERSION="1.19.0"
+VERSION="1.20.0"
 EXPECTED_NAME="linuxmint-22.3-cinnamon-64bit.iso"
 EXPECTED_SHA="a081ab202cfda17f6924128dbd2de8b63518ac0531bcfe3f1a1b88097c459bd4"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -20,6 +20,7 @@ Expected file: ${EXPECTED_NAME}
 Expected sha256: ${EXPECTED_SHA}
 Upstream index: https://www.linuxmint.com/download.php
 Independent overlay: https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip
+Experimentals station: https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/experimentals.html
 This kit does not contain the Mint ISO.
 EOF
 
@@ -63,6 +64,7 @@ Next:
   3. Unzip the Harbor overlay and run: bash iso/live-apply.sh
   4. Optional Cubic path: open the same verified ISO in Cubic and run iso/customize.sh in the chroot.
 The resulting personal ISO is the operator's artifact. Do not upload it as a flavor pack.
+Flavor upload belongs under Experimentals → Upload flavor (X Premium+ submenu).
 EOF
 
 echo "Verified. Workspace: $WORK"
