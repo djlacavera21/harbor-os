@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+title>Grok · Experimentals · Harbor OS 1.20.0</title>
+<style>
+  :root { --bg:#10140f; --panel:#1a2218; --ink:#e7efe2; --muted:#9aab96; --line:#2c3a28; --accent:#c6a15b; --good:#8fbf7a; --warn:#d7a35a; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.5 "Iowan Old Style", Palatino, Georgia, serif; background:var(--bg); color:var(--ink); }
+  header { padding:28px 7vw 12px; border-bottom:1px solid var(--line); }
+  .kicker { letter-spacing:.16em; text-transform:uppercase; font:12px/1.2 ui-sans-serif, system-ui, sans-serif; color:var(--accent); }
+  h1 { font-weight:500; font-size:34px; margin:8px 0 4px; }
+  .banner { margin-top:10px; color:var(--warn); font:14px/1.4 ui-sans-serif, system-ui, sans-serif; }
+  nav { display:flex; gap:8px; flex-wrap:wrap; padding:14px 7vw; border-bottom:1px solid var(--line); }
+  button { background:transparent; color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:8px 14px; cursor:pointer; font:13px ui-sans-serif, system-ui, sans-serif; }
+  button.active { border-color:var(--accent); color:var(--accent); }
+  main { padding:28px 7vw 64px; max-width:980px; }
+  section { display:none; }
+  section.active { display:block; }
+  a { color:var(--good); }
+  code, pre { font:13px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  pre { background:#0c100c; border:1px solid var(--line); padding:14px; overflow:auto; border-radius:10px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin:14px 0; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; margin:12px 0; }
+  .dl { background:var(--accent); color:#1a1408; border:0; font-weight:650; text-decoration:none; padding:8px 14px; border-radius:999px; display:inline-block; }
+  label { display:block; margin:10px 0 4px; color:var(--muted); font:13px ui-sans-serif, system-ui, sans-serif; }
+  input[type=file], input[type=text] { width:100%; color:var(--ink); }
+  .locked { opacity:.72; }
+  table { width:100%; border-collapse:collapse; font:14px/1.4 ui-sans-serif, system-ui, sans-serif; }
+  td { border-top:1px solid var(--line); padding:8px 6px; vertical-align:top; }
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Independent station · not an xAI product · overlay 1.20.0</div>
+  <h1>Grok · Experimentals</h1>
+  <p>Harbor OS — FreshOS Zen Garden. Full OS means official Linux Mint 22.3 Cinnamon plus this overlay. Anyone can download. Only a proposed X Premium+ submenu can upload a flavor.</p>
+  <div class="banner">This page is the live stand-in. Only xAI can place this information architecture inside the production Grok app, or check a real Premium+ entitlement.</div>
+</header>
+<nav>
+  <button class="active" data-pane="harbor">Harbor OS</button>
+  <button data-pane="full">Full OS</button>
+  <button data-pane="flavors">Flavors</button>
+  <button data-pane="apply">Apply</button>
+  <button data-pane="upload">Upload flavor · Premium+</button>
+</nav>
+<main>
+  <section id="harbor" class="active">
+    <h2>Harbor OS</h2>
+    <p>Independent overlay download. No Grok account. No Premium+.</p>
+    <div class="row">
+      <a class="dl" href="https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip">Download overlay zip</a>
+      <a href="https://github.com/djlacavera21/harbor-os">Repository</a>
+      <a href="https://raw.githubusercontent.com/djlacavera21/harbor-os/main/experimentals/full-os.json">Full OS contract</a>
+    </div>
+    <pre>curl -L -o harbor-os.zip https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip</pre>
+  </section>
+  <section id="full">
+    <h2>Full OS</h2>
+    <p>Harbor does not host or relicense the Mint ISO. The bootable path is: verify the official image, boot it, apply the overlay.</p>
+    <div class="card">
+      <table>
+        <tr><td>Declared base</td><td>linuxmint-22.3-cinnamon-64bit.iso</td></tr>
+        <tr><td>sha256</td><td><code>a081ab202cfda17f6924128dbd2de8b63518ac0531bcfe3f1a1b88097c459bd4</code></td></tr>
+        <tr><td>Upstream index</td><td><a href="https://www.linuxmint.com/download.php">linuxmint.com/download.php</a></td></tr>
+        <tr><td>Overlay</td><td><a href="https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip">harbor-os-main.zip</a></td></tr>
+      </table>
+    </div>
+    <pre>curl -L -o harbor-os.zip https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip
+unzip harbor-os.zip && cd harbor-os-main
+bash iso/full-os-kit.sh /path/to/linuxmint-22.3-cinnamon-64bit.iso
+# boot the verified Mint image, then:
+bash iso/live-apply.sh</pre>
+    <p>The kit refuses a mismatched filename or checksum. It does not fetch the ISO. A personal Cubic image is the operator’s artifact and must not be uploaded as a flavor pack.</p>
+  </section>
+  <section id="flavors">
+    <h2>Flavors</h2>
+    <p>Official flavor: FreshOS Zen Garden. Community flavors stay <code>risk=unsigned</code> until a human review. Download does not require Premium+.</p>
+    <ul>
+      <li><a href="https://github.com/djlacavera21/harbor-os/blob/main/flavors/zen-garden/harbor.flavor.yaml">zen-garden</a> — official</li>
+      <li><a href="https://github.com/djlacavera21/harbor-os/tree/main/flavors">community flavors</a> — war-room, research, publishing, finance, design, archives, crew, gateway, empire-stack, airgap-tui</li>
+    </ul>
+  </section>
+  <section id="apply">
+    <h2>Apply</h2>
+    <pre>chmod +x scripts/harborctl.sh installer/*.sh
+./scripts/harborctl.sh garden
+# http://127.0.0.1:8080
+HARBOR_FLAVOR_ID=zen-garden ./scripts/harborctl.sh apply</pre>
+  </section>
+  <section id="upload">
+    <h2>Upload flavor · X Premium+ submenu</h2>
+    <p class="locked">Proposed placement: Experimentals → Upload flavor. Hidden unless the bound X account is Premium+. This station cannot read that entitlement. The checkbox below is a local rehearsal only.</p>
+    <div class="card">
+      <label><input id="gate" type="checkbox"> Rehearse as X Premium+ (does not prove a subscription)</label>
+      <label>Flavor file · harbor-flavor/v1 YAML, or zip ≤ 50 MiB · no ISO</label>
+      <input id="file" type="file" accept=".yaml,.yml,.zip">
+      <div class="row"><button id="check" class="dl" type="button">Validate packet</button>
+        <a href="https://github.com/djlacavera21/harbor-os/issues/new?template=submit-flavor.yml">Submit reviewed flavor</a></div>
+      <pre id="out">Waiting for a file.</pre>
+    </div>
+    <p>Success queues a community listing as unsigned. It does not publish a bootable OS and must not claim official xAI or Grok OS status.</p>
+  </section>
+</main>
+<script>
+const panes = document.querySelectorAll("section");
+document.querySelectorAll("nav button").forEach(btn => btn.addEventListener("click", () => {
+  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  panes.forEach(p => p.classList.toggle("active", p.id === btn.dataset.pane));
+}));
+document.getElementById("check").addEventListener("click", async () => {
+  const out = document.getElementById("out");
+  const gate = document.getElementById("gate").checked;
+  const file = document.getElementById("file").files[0];
+  if (!gate) { out.textContent = "Blocked. Upload flavor is the Premium+ submenu. Check the rehearsal gate, or use the public download instead."; return; }
+  if (!file) { out.textContent = "Choose a .yaml, .yml, or .zip."; return; }
+  const name = file.name.toLowerCase();
+  const reasons = [];
+  if (!/\.(yaml|yml|zip)$/.test(name)) reasons.push("extension must be yaml, yml, or zip");
+  if (file.size > 50 * 1024 * 1024) reasons.push("over 50 MiB");
+  if (/\.(iso|img|dmg)$/.test(name)) reasons.push("disk images are refused");
+  let text = "";
+  if (/\.(yaml|yml)$/.test(name)) text = await file.text();
+  if (text && !/harbor-flavor\/v1/.test(text)) reasons.push("missing harbor-flavor/v1");
+  if (/BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY|xai-[A-Za-z0-9]|sk-[A-Za-z0-9]{8,}/.test(text)) reasons.push("possible secret");
+  if (/official_xai_product:\s*true|official Grok OS/i.test(text)) reasons.push("must not claim official xAI status");
+  const packet = { schema:"harbor-review-packet/v1", overlay:"1.20.0", file:file.name, bytes:file.size, entitlement:"rehearsal-only", risk: reasons.length ? "rejected" : "unsigned", reasons };
+  out.textContent = JSON.stringify(packet, null, 2);
+});
+</script>
+</body>
+</html>
