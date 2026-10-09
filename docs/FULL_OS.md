@@ -1,4 +1,4 @@
-# What “full OS” means in Harbor — 1.19.0
+# What “full OS” means in Harbor — 1.20.0
 
 Harbor OS is three layers. Only the overlay ships from this repository.
 
@@ -16,11 +16,11 @@ https://github.com/djlacavera21/harbor-os/archive/refs/heads/main.zip
 
 Live Experimentals stand-in (not the Grok app):
 
-https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/index.html
+https://htmlpreview.github.io/?https://github.com/djlacavera21/harbor-os/blob/main/docs/experimentals.html
 
 ## Layer B — Full OS path
 
-Declared base, not hosted here:
+Declared base, verified against the Linux Mint 22.3 sha256sum on 2026-10-09. Not hosted here:
 
 - file: `linuxmint-22.3-cinnamon-64bit.iso`
 - sha256: `a081ab202cfda17f6924128dbd2de8b63518ac0531bcfe3f1a1b88097c459bd4`
@@ -34,7 +34,7 @@ bash iso/full-os-kit.sh /path/to/linuxmint-22.3-cinnamon-64bit.iso
 bash iso/live-apply.sh
 ```
 
-`iso/full-os-kit.sh` refuses a mismatched filename or checksum. It does not fetch the ISO.
+`iso/full-os-kit.sh` refuses a mismatched filename or checksum. It does not fetch the ISO. A personal Cubic image stays the operator’s artifact and must not be uploaded as a flavor pack.
 
 ## Layer C — proposed Experimentals tab
 
